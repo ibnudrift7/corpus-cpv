@@ -120,11 +120,13 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
 							<div class="title-utama">
 								<h3>Our Services</h3>
 							</div>
-							<div class="content-isi">
+							<div class="content-isi content-text">
 								<h4>01. Venture Capital</h4>
 								<p>Joint investment contract made between Corpus and the custodian bank, where Corpus as PMV is given the authority to manage the funds you invest</p>
+
+								<div class="clear clearfix"></div>
 							</div>
-							<div class="content-isi">
+							<div class="content-isi content-text">
 								<h4>02. Capital Funding Facility</h4>
 								<h5>Productive Business Financing</h5>
 								<ul>
@@ -138,6 +140,12 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
 								<p>Investments in shares are made through the purchase of shares from business partners that have not yet been traded on the stock exchange.</p>
 								<h5>Obligation Conversion</h5>
 								<p>Financing can also be in the form of purchasing a certificate of ownership conversion bond set forth in an agreement with a notary.</p>
+
+								<div class="py-2"></div>
+								<a href="<?php echo CHtml::normalizeUrl(array('/home/business', 'lang'=>Yii::app()->language)); ?>" class="btn btn-link btns_custom_blue">Apply For Your Business</a>
+
+								<div class="py-2"></div>
+								<div class="clear clearfix"></div>
 							</div>
 						</div>
 					</div>

@@ -565,6 +565,15 @@ class HomeController extends Controller
 		));
 	}
 
+	public function actionBusiness()
+	{
+		$this->pageTitle = 'Business - '.$this->pageTitle;
+		$this->layout='//layouts/column2';
+
+		$this->render('business', array(	
+		));
+	}
+
 	public function actionMerk()
 	{
 		$this->pageTitle = 'Merk - '.$this->pageTitle;

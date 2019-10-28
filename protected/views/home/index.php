@@ -55,7 +55,10 @@
 	</div>
 </section>
 
-<section class="home-sec-our">
+<div class="py-4 my-3"></div>
+<div class="separators_blue"></div>
+
+<section class="home-sec-our d-none">
 	<div class="prelative container">
 		<div class="box-our-service">
 			<div class="title">
