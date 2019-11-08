@@ -100,42 +100,225 @@
 
 <section class="contact-sec-2">
     <div class="prelative container">
-        <div class="row w-100">
-            <div class="col-md-60">
-                <div class="head-title">
-                    <?php if (Yii::app()->language == 'en'): ?>
-                    <p><span><img src="<?php echo $this->assetBaseurl; ?>contact-logo.png" alt=""></span>Corpus Headquarter & Offices</p>
-                    <?php else: ?>
-                    <p><span><img src="<?php echo $this->assetBaseurl; ?>contact-logo.png" alt=""></span>Kantor Pusat & Kantor Corpus</p>
-                    <?php endif ?>
+		<div class="row w-100">
+			<div class="col-md-60">
+				<div class="head-title">
+					<?php if (Yii::app()->language == 'en'): ?>
+						<p><span><img src="<?php echo $this->assetBaseurl; ?>contact-logo.png" alt="">Corpus Headquarter</span></p>
+					<?php else: ?>
+						<p><span><img src="<?php echo $this->assetBaseurl; ?>contact-logo.png" alt=""></span>Kantor Pusat & Kantor Corpus</p>
+					<?php endif ?>
+				</div>
+			</div>
+		</div>
+		<div class="row w-100 pt-4">
+			<?php
+			$m_address = Address::model()->findAll();
+			?>
+			<?php foreach ($m_address as $key => $value): ?>
+				<?php if($key==0){ ?>
+					<div class="col-md-30">
+						<div class="kartu-contact">
+							<div class="row no-gutters">
+								<div class="col-md-30">
+									<div class="kiri">
+										<div class="content">
+											<h5><?php echo $value->nama ?></h5>
+											<h4><?php echo $value->address_1 ?></h4>
+											<p><?php echo nl2br($value->address_2) ?></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-30">
+									<div class="kanan">
+										<img class="w-100 img img-fluid" src="<?php echo Yii::app()->baseUrl.ImageHelper::thumb(305,203, '/images/address/'. $value->image , array('method' => 'adaptiveResize', 'quality' => '90')) ?>" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
+			<?php endforeach ?>
+
+			<!-- <div class="col-md-30">
+                <div class="kartu-contact">
+                    <div class="row no-gutters">
+                        <div class="col-md-30">
+                            <div class="kiri">
+                                <div class="content">
+                                    <h5>Corpus Kapital Manajemen</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Sahid Sudirman Center Lantai 49 Unit B <br> Jl. Jendral Sudirman No. 86 <br> Jakarta Pusat, 10220</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-30">
+                            <div class="kanan">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row w-100 pt-4">
-            <?php 
-            $m_address = Address::model()->findAll();
-            ?>
-            <?php foreach ($m_address as $key => $value): ?>
             <div class="col-md-30">
                 <div class="kartu-contact">
                     <div class="row no-gutters">
                         <div class="col-md-30">
                             <div class="kiri">
                                 <div class="content">
-                                    <h5><?php echo $value->nama ?></h5>
-                                    <h4><?php echo $value->address_1 ?></h4>
-                                    <p><?php echo nl2br($value->address_2) ?></p>
+                                    <h5>Corpus Bali</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Jl. Raya Padang Luwih No. 8 (Kav. 2) <br> Kerobokan Kaja - Kuta Utara, <br> Denpasar, 80361</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-30">
                             <div class="kanan">
-                                <img class="w-100 img img-fluid" src="<?php echo Yii::app()->baseUrl.ImageHelper::thumb(305,203, '/images/address/'. $value->image , array('method' => 'adaptiveResize', 'quality' => '90')) ?>" alt="">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con3.jpg" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-30">
+                <div class="kartu-contact">
+                    <div class="row no-gutters">
+                        <div class="col-md-30">
+                            <div class="kiri">
+                                <div class="content">
+                                    <h5>Corpus Malang</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Jl. Buring No. 1 (Kav. 6) <br> Oro-Oro Dowo, Klojen <br> Kota Malang, 65119</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-30">
+                            <div class="kanan">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-30">
+                <div class="kartu-contact">
+                    <div class="row no-gutters">
+                        <div class="col-md-30">
+                            <div class="kiri">
+                                <div class="content">
+                                    <h5>Corpus Jakarta</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Equity Tower 15H <br> Jl. Jendral Sudirman 52-53 <br> Jakarta Pusat, 12190</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-30">
+                            <div class="kanan">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con5.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-30">
+                <div class="kartu-contact">
+                    <div class="row no-gutters">
+                        <div class="col-md-30">
+                            <div class="kiri">
+                                <div class="content">
+                                    <h5>Corpus Medan</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Komplek Ruko Royal Residence <br> Jl. Palang Merah No. 15-16 <br> 20151</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-30">
+                            <div class="kanan">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con6.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-30">
+                <div class="kartu-contact">
+                    <div class="row no-gutters">
+                        <div class="col-md-30">
+                            <div class="kiri">
+                                <div class="content">
+                                    <h5>Corpus Bandung</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Wisma Monex 9C <br> Jl. Asia Afrika No. 133 <br> 40112</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-30">
+                            <div class="kanan">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con7.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-30">
+                <div class="kartu-contact">
+                    <div class="row no-gutters">
+                        <div class="col-md-30">
+                            <div class="kiri">
+                                <div class="content">
+                                    <h5>Corpus Semarang</h5>
+                                    <h4>Branch Office</h4>
+                                    <p>Jl. Seroja Dalam A2 <br> Karang Kidul, 50241</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-30">
+                            <div class="kanan">
+                                <img class="w-100" src="<?php echo $this->assetBaseurl; ?>con8.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+		</div>
+        <div class="row w-100">
+            <div class="col-md-60">
+                <div class="head-title pt-5 mt-3">
+                    <?php if (Yii::app()->language == 'en'): ?>
+                    <p><span><img src="<?php echo $this->assetBaseurl; ?>contact-logo.png" alt=""></span>For funding process you can also contact our agencies</p>
+                    <?php else: ?>
+                    <p><span><img src="<?php echo $this->assetBaseurl; ?>contact-logo.png" alt=""></span>Kantor Pusat & Kantor Corpus</p>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100 pt-2">
+            <?php
+            $m_address = Address::model()->findAll();
+            ?>
+            <?php foreach ($m_address as $key => $value): ?>
+				<?php if($key>=1){ ?>
+					<div class="col-md-30">
+						<div class="kartu-contact">
+							<div class="row no-gutters">
+								<div class="col-md-30">
+									<div class="kiri">
+										<div class="content">
+											<h5><?php echo $value->nama ?></h5>
+<!--											<h4>--><?php //echo $value->address_1 ?><!--</h4>-->
+											<p><?php echo nl2br($value->address_2) ?></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-30">
+									<div class="kanan">
+										<img class="w-100 img img-fluid" src="<?php echo Yii::app()->baseUrl.ImageHelper::thumb(305,203, '/images/address/'. $value->image , array('method' => 'adaptiveResize', 'quality' => '90')) ?>" alt="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
             <?php endforeach ?>
 
             <!-- <div class="col-md-30">

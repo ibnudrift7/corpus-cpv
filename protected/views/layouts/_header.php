@@ -62,9 +62,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/home/about', 'lang'=>Yii::app()->language)); ?>" data-id="menu-investor">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?>">Case Studies</a>
-              </li>
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" href="--><?php //echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?><!--">Case Studies</a>-->
+<!--              </li>-->
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/blog/index', 'lang'=>Yii::app()->language)); ?>">News & Events</a>
               </li>
@@ -177,9 +177,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/home/about', 'lang'=>Yii::app()->language)); ?>" data-id="menu-investor2">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?>">Case Studies</a>
-              </li>
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link" href="--><?php //echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?><!--">Case Studies</a>-->
+<!--              </li>-->
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/blog/index', 'lang'=>Yii::app()->language)); ?>">News & Events</a>
               </li>    
@@ -301,9 +301,9 @@
 		<li class="list-inline-item">
 			<a href="<?php echo CHtml::normalizeUrl(array('/home/about', 'lang'=>Yii::app()->language)); ?>" data-id="menu-investor">About Us</a>
 		</li>
-		<li class="list-inline-item">
-			<a href="<?php echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?>">Case Studies</a>
-		</li>
+<!--		<li class="list-inline-item">-->
+<!--			<a href="--><?php //echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?><!--">Case Studies</a>-->
+<!--		</li>-->
 		<li class="list-inline-item">
 			<a href="<?php echo CHtml::normalizeUrl(array('/blog/index', 'lang'=>Yii::app()->language)); ?>">News & Events</a>
 		</li>

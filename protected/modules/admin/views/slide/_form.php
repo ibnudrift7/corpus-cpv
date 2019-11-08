@@ -167,10 +167,9 @@
 				<?php endif; ?>
 		    </div>
 		</div>
-		
-		<?php /*
+
 		<div class="divider15"></div>
-		<div class="widgetbox block-rightcontent">                        
+		<div class="widgetbox block-rightcontent">
 		    <div class="headtitle">
 		        <h4 class="widgettitle">Gambar Responsive</h4>
 		    </div>
@@ -182,7 +181,6 @@
 				<?php endif; ?>
 		    </div>
 		</div>
-		*/ ?>
 
 	</div>
 </div>

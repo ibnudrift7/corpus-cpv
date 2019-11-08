@@ -33,9 +33,9 @@
 										<li>
 											<a href="<?php echo CHtml::normalizeUrl(array('/home/about', 'lang'=>Yii::app()->language)); ?>" data-id="menu-investor">About Us</a>
 										</li>
-										<li>
-											<a href="<?php echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?>">Case Studies</a>
-										</li>
+										<!-- <li>
+											<a href="<?php // echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?>">Case Studies</a>
+										</li> -->
 										<li>
 											<a href="<?php echo CHtml::normalizeUrl(array('/blog/index', 'lang'=>Yii::app()->language)); ?>">News & Events</a>
 										</li>
@@ -58,6 +58,12 @@
 						</div>
 						<div class="image">
 							<img class="img img-fluid" src="<?php echo $this->assetBaseurl; ?>footer-update_03.jpg" alt="">
+							<ul class="bawah-logo-foot">
+								<li><img src="<?php echo $this->assetBaseurl; ?>ojk.png" alt=""></li>
+								<li><img src="<?php echo $this->assetBaseurl; ?>inklusi.png" alt=""></li>
+								<li><img src="<?php echo $this->assetBaseurl; ?>bmppvi.png" alt=""></li>
+								<li><img src="<?php echo $this->assetBaseurl; ?>amvesindo.png" alt=""></li>
+							</ul>
 						</div>
 						<div class="content">
 							<p>Our financial products are offered/underwritten by one or more of the following: Corpus Prima Mandiri; Corpus Sekuritas Indonesia, Corpus Kapital Manajemen, CPV, Corpus Prima Investama and operated in major cities in Indonesia - Surabaya, Jakarta, Bali, Malang, Medan, Semarang, Bandung.</p>
@@ -88,3 +94,15 @@
 	</div>
 	<div class="pb-5"></div>
 </section>
+
+<style>
+	ul.bawah-logo-foot{
+		list-style: none;
+		padding-left: 0;
+		padding-top: 15px;
+	}
+	ul.bawah-logo-foot li{
+		display: inline-block;
+		margin-right: 50px;
+	}
+</style>

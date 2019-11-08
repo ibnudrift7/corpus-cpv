@@ -37,9 +37,9 @@ $dum_slides = array(
 			<div class="carousel-inner">
 				<?php foreach ($slide as $key => $value): ?>
 					<div class="carousel-item <?php if ($key == 0): ?>active<?php endif ?> home-slider-new">
-						<img class="w-100" src="<?php echo Yii::app()->baseUrl.ImageHelper::thumb(1920,978, '/images/slide/'. $value->image , array('method' => 'adaptiveResize', 'quality' => '90')) ?>" alt="First slide" style="background-repeat: no-repeat;background-size: cover;">
+						<img class="w-100 d-none d-sm-block" src="<?php echo Yii::app()->baseUrl.ImageHelper::thumb(1920,978, '/images/slide/'. $value->image , array('method' => 'adaptiveResize', 'quality' => '90')) ?>" alt="<?php echo $value->description->title ?>" style="background-repeat: no-repeat;background-size: cover;">
+                    <img class="w-100 d-block d-sm-none" src="<?php echo Yii::app()->baseUrl.'/images/slide/'; ?><?php echo $value->image2 ?>" alt="<?php echo $value->description->title ?>">
 						<?php /*
-                    <img class="w-100 d-block d-sm-none" src="<?php echo $this->assetBaseurl; ?>slides/<?php echo $value['img_mob'] ?>" alt="">
                     <div class="carousel-caption caption-slider-home">
                         <div class="prelative container">
                             <div class="bxsl_tx_fcs">
@@ -109,7 +109,7 @@ $dum_slides = array(
             $item.height($wHeight);
             $item.addClass('full-screen');
 
-            $('#myCarousel_home.carousel img.w-100').each(function() {
+            $('#myCarousel_home.carousel img.d-none.d-sm-block').each(function() {
                 var $src = $(this).attr('src');
                 var $color = $(this).attr('data-color');
                 $(this).parent().css({
@@ -125,7 +125,7 @@ $dum_slides = array(
             });
 
             $('#myCarousel_home.carousel').carousel({
-                interval: 4000,
+                interval: 4500,
                 pause: "false"
             });
         }

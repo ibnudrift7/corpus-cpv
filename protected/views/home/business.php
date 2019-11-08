@@ -51,7 +51,7 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
                 <?php 
                 $n_downld = array(
                                 [
-                                    'name'=>'Penawaran Calon Debitur',
+                                    'name'=>'Persyaratan Calon Debitur',
                                     'files'=>'penawaran-calon-debitur.pdf',
                                 ],
                                 [
@@ -64,8 +64,8 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
                     <?php foreach ($n_downld as $key => $value): ?>
                     <div class="items mb-3">
                         <div class="row">
-                            <div class="col col-md-5">
-                                <div class="bxl_img"><img src="<?php echo $this->assetBaseurl ?>img-icon-pdfs.png" alt="" class="img img-fluid"></div>
+                            <div class="col-10 col-md-5">
+                                <div class="bxl_img"><img src="<?php echo $this->assetBaseurl ?>pdfs-512.png" alt="" class="img img-fluid"></div>
                             </div>
                             <div class="col">
                                 <div class="desc_info">
@@ -77,6 +77,10 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
                         </div>
                     </div>
                     <?php endforeach ?>
+					<div class="formnya">
+						<p>
+						You can download the form to fill it then scan and send it to us via email <a href="mailto:admin.cpv@corpus.co.id">admin.cpv@corpus.co.id</a> or Whatsapp at<a href="https://wa.me/62811318553"> 0811318553 </a</p>
+					</div>
                 </div>
                 <div class="clear"></div>
 
@@ -92,5 +96,8 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
 <style>
 	.cover.whatwedo .text.ya{
 		width:1000px !important;
+	}
+	.formnya p a{
+			color: #333333;
 	}
 </style>
