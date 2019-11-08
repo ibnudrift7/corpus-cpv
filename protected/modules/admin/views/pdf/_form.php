@@ -25,10 +25,10 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span6">
-			<?php echo $form->textFieldRow($model,'sort',array('class'=>'span12')); ?>
+			<?php echo $form->textFieldRow($model,'sort', array('class'=>'span12', 'hint'=> 'Ex. 5, 10, 15, 20, 25')); ?>
 		</div>
 		<div class="span6">
-			<?php echo $form->textFieldRow($model,'dates',array('class'=>'span12', 'id'=>'datepicker2')); ?>
+			<?php // echo $form->textFieldRow($model,'dates',array('class'=>'span12', 'id'=>'datepicker2')); ?>
 		</div>
 	</div>
 
@@ -37,6 +37,7 @@
 	<?php if ($model->scenario == 'update'): ?>
 	<a href="<?php echo Yii::app()->baseUrl ?>/images/pdf/<?php echo $model->file ?>">Lihat file di sini</a>
 	<?php endif; ?>
+
 	<br>
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
 		'buttonType'=>'submit',

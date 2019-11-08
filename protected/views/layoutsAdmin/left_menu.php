@@ -49,6 +49,7 @@
             <ul>
                 <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/static/services')); ?>">Static Services</a></li>
                 <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/static/business')); ?>">Static Apply Business</a></li>
+                <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/pdf/index', 'category'=>0)); ?>">Document Apply Business</a></li>
             </ul>
         </li>
 
@@ -57,6 +58,8 @@
                 <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/service/index')); ?>">List What We Do</a></li>
             </ul>
         </li> -->
+
+        <!-- <li class="dropdown"><a href="#"><span class="fa fa-folder"></span> <?php echo Tt::t('admin', 'Documents Apply Business') ?></a></li> -->
 
         <!-- <li class="dropdown"><a href="#"><span class="fa fa-folder"></span> <?php echo Tt::t('admin', 'Investor Relations') ?></a>
             <ul>
@@ -86,7 +89,7 @@
         <li class="dropdown"><a href="#"><span class="fa fa-folder"></span> <?php echo Tt::t('admin', 'Career') ?></a>
             <ul>
                 <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/static/career')); ?>">Static Career</a></li>
-                <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/careerList/index')); ?>">List Careers Positions</a></li>
+                <!-- <li><a href="<?php echo CHtml::normalizeUrl(array('/admin/careerList/index')); ?>">List Careers Positions</a></li> -->
             </ul>
         </li>
 

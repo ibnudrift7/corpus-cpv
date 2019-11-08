@@ -62,9 +62,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/home/about', 'lang'=>Yii::app()->language)); ?>" data-id="menu-investor">About Us</a>
               </li>
-<!--              <li class="nav-item">-->
-<!--                <a class="nav-link" href="--><?php //echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?><!--">Case Studies</a>-->
-<!--              </li>-->
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/blog/index', 'lang'=>Yii::app()->language)); ?>">News & Events</a>
               </li>
@@ -85,76 +82,6 @@
     </div>
   </div>
   
-<!--  <div class="blocks_menu_dropdown about-n1" id="menu-whatwedo">-->
-<!--    <div class="prelative container pt-2 pb-5">-->
-<!--      <div class="row">-->
-<!--        <div class="col-md-15"></div>-->
-<!--        <div class="col-md-45">-->
-<!--          <div class="bx-inners_sub">-->
-<!--            <div class="py-2"></div>-->
-<!--            <div class="lines-grey"></div>-->
-<!--            <div class="py-2"></div>-->
-<!--            <div class="py-1"></div>-->
-<!--            <div class="prelatife row">-->
-<!--              <div class="col-md-55">-->
-<!--                <div class="menu-sub">-->
-<!--                  <ul class="list-unstyled">-->
-<!--                    --><?php
-//                    $criteria = new CDbCriteria;
-//                    $criteria->with = array('description');
-//                    $criteria->addCondition('description.language_id = :language_id');
-//                    $criteria->params[':language_id'] = $this->languageID;
-//                    $data_ser = Service::model()->findAll($criteria);
-//                    ?>
-<!--                    --><?php //foreach ($data_ser as $key => $value): ?>
-<!--                    <li><a href="--><?php //echo CHtml::normalizeUrl(array('/home/whatwedo', 'id'=> $value->id, 'lang'=>Yii::app()->language)); ?><!--">--><?php //echo ucwords( strtolower( $value->description->title) ) ?><!--</a></li>-->
-<!--                    --><?php //endforeach; ?>
-<!--                  </ul>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-5">-->
-<!--                <div class="blc_right_close_menu"><a class="btn btn-link closing_menu" href="#" ><i class="fa fa-times fa-2x"></i></a></div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="clear clearfix"></div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="clear"></div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!---->
-<!--  <div class="blocks_menu_dropdown about-n1" id="menu-investor">-->
-<!--    <div class="prelative container pt-2 pb-5">-->
-<!--      <div class="row">-->
-<!--        <div class="col-md-15"></div>-->
-<!--        <div class="col-md-45">-->
-<!--          <div class="bx-inners_sub">-->
-<!--            <div class="py-2"></div>-->
-<!--            <div class="lines-grey"></div>-->
-<!--            <div class="py-2"></div>-->
-<!--            <div class="py-1"></div>-->
-<!--            <div class="prelatife row">-->
-<!--              <div class="col-md-55">-->
-<!--                <div class="menu-sub">-->
-<!--                  <ul class="list-unstyled">-->
-<!--                    <li><a href="--><?php //echo CHtml::normalizeUrl(array('/home/investorreports', 'lang'=>Yii::app()->language)); ?><!--">Annual Financial Reports</a></li>-->
-<!--                    <li><a href="--><?php //echo CHtml::normalizeUrl(array('/blog/index', 'category'=>'financial', 'lang'=>Yii::app()->language)); ?><!--">Financial Highlights</a></li>-->
-<!--                    <li><a href="--><?php //echo CHtml::normalizeUrl(array('/home/investorfactsheet', 'lang'=>Yii::app()->language)); ?><!--">Factsheets</a></li>-->
-<!--                  </ul>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-5">-->
-<!--                <div class="blc_right_close_menu"><a class="btn btn-link closing_menu" href="#" ><i class="fa fa-times fa-2x"></i></a></div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            <div class="clear clearfix"></div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="clear"></div>-->
-<!--    </div>-->
-<!--  </div>-->
 </section>
 
 <section id="myAffix" class="header-affixs affix-top">
@@ -177,9 +104,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/home/about', 'lang'=>Yii::app()->language)); ?>" data-id="menu-investor2">About Us</a>
               </li>
-<!--              <li class="nav-item">-->
-<!--                <a class="nav-link" href="--><?php //echo CHtml::normalizeUrl(array('/home/case', 'lang'=>Yii::app()->language)); ?><!--">Case Studies</a>-->
-<!--              </li>-->
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo CHtml::normalizeUrl(array('/blog/index', 'lang'=>Yii::app()->language)); ?>">News & Events</a>
               </li>    

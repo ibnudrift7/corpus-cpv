@@ -9,11 +9,11 @@ $criteria->addCondition('t.id = :id');
 $criteria->params[':id'] = intval( htmlspecialchars($numbs) );
 $model = Service::model()->find($criteria);
 
-$img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
+$img_cov = Yii::app()->baseUrl.'/images/static/'. $this->setting['business_hero_image'];
 ?>
 <div class="cover whatwedo" style="background-image: url('<?php echo $img_cov ?>');">
   <div class="text ya">
-  	<h2 class="what">Apply For Your Business</h2>
+  	<h2 class="what"><?php echo $this->setting['business_hero_title'] ?></h2>
   </div>
 </div>
 
@@ -23,7 +23,7 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
 		  <ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>">Home</a></li>
 		    <li class="breadcrumb-item"><a href="<?php echo CHtml::normalizeUrl(array('/home/whatwedo')); ?>">Our Services</a></li>
-		    <li class="breadcrumb-item"><a href="javascript:;">Apply For Your Business</a></li>
+		    <li class="breadcrumb-item"><a href="javascript:;"><?php echo $this->setting['business_hero_title'] ?></a></li>
 		  </ol>
 		  <div class="back float-right">
 		  	<a href="<?php echo CHtml::normalizeUrl(array('/home/index')); ?>"><span><img src="<?php echo $this->assetBaseurl; ?>arrow-back.png" alt=""></span>BACK TO PREVIOUS PAGE</a>
@@ -38,10 +38,10 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
             <div class="col-md-30">
                 <div class="content">
                     <div class="lets">
-                        <p>APPLY FOR YOUR BUSINESS</p>
+                        <p><?php echo strtoupper( $this->setting['business_hero_title']) ?></p>
                     </div>
                     <div class="title">
-                        <p>We are eager to know you more, schedule a meeting with Corpus and allow us to find the best solutions available to benefit your business.</p>
+                        <?php echo $this->setting['business_1_content'] ?>
                     </div>
                     <!-- <div class="fill d-none">
                         <p><?php // echo $this->setting['contact_bottom_content'] ?></p>
@@ -59,9 +59,13 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
                                     'files'=>'apk-logo-baru.xlsx',
                                 ],
                             );
+                // cal data
+                $criteria = new CDbCriteria;
+                $criteria->order = 't.sort ASC';
+                $data_down = Pdf::model()->findAll($criteria);
                 ?>
                 <div class="boxs_listing_download">
-                    <?php foreach ($n_downld as $key => $value): ?>
+                    <?php foreach ($data_down as $key => $value): ?>
                     <div class="items mb-3">
                         <div class="row">
                             <div class="col-10 col-md-5">
@@ -69,8 +73,12 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
                             </div>
                             <div class="col">
                                 <div class="desc_info">
-                                    <p><?php echo $value['name'] ?></p>
-                                    <a download href="<?php echo Yii::app()->baseUrl.'/document/'. $value['files'] ?>" class="btn btn-link p-0 btn_ncall">Download</a>
+                                    <?php if (Yii::app()->language == 'en'): ?>
+                                    <p><?php echo $value->nama_en ?></p>    
+                                    <?php else: ?>
+                                    <p><?php echo $value->nama_id ?></p>
+                                    <?php endif ?>
+                                    <a download href="<?php echo Yii::app()->baseUrl.'/images/pdf/'. $value->file ?>" class="btn btn-link p-0 btn_ncall">Download</a>
                                     <div class="clear"></div>
                                 </div>
                             </div>
@@ -78,8 +86,9 @@ $img_cov = Yii::app()->baseUrl.'/images/static/ill-hero-about-cpv.jpg';
                     </div>
                     <?php endforeach ?>
 					<div class="formnya">
-						<p>
-						You can download the form to fill it then scan and send it to us via email <a href="mailto:admin.cpv@corpus.co.id">admin.cpv@corpus.co.id</a> or Whatsapp at<a href="https://wa.me/62811318553"> 0811318553 </a</p>
+                        <?php echo $this->setting['business_2_content'] ?>
+						<!-- <p>
+						You can download the form to fill it then scan and send it to us via email <a href="mailto:admin.cpv@corpus.co.id">admin.cpv@corpus.co.id</a> or Whatsapp at<a href="https://wa.me/62811318553"> 0811318553 </a</p> -->
 					</div>
                 </div>
                 <div class="clear"></div>

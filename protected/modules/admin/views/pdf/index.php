@@ -9,6 +9,8 @@
 	$criteria->order = 't.sort ASC';
 	$detailCategory = PrdCategory::model()->find($criteria);
 	$titles_subm = $detailCategory->description->name;
+
+	$titles_subm = 'Apply For Business';
 ?>
 <?php
 $this->breadcrumbs=array(

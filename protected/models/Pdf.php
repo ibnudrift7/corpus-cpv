@@ -46,8 +46,8 @@ class Pdf extends CActiveRecord
 			array('image, file', 'length', 'max'=>200),
 			array('size', 'length', 'max'=>30),
 
-			array('file', 'file', 'types'=>'pdf', 'allowEmpty'=>FALSE, 'on'=>'insert'),
-			array('file', 'file', 'types'=>'pdf', 'allowEmpty'=>TRUE, 'on'=>'update'),
+			array('file', 'file', 'types'=>'pdf, xls, xlsx', 'allowEmpty'=>FALSE, 'on'=>'insert'),
+			array('file', 'file', 'types'=>'pdf, xls, xlsx', 'allowEmpty'=>TRUE, 'on'=>'update'),
 
 			array('date_input, nama_en, nama_id, size, dates', 'safe'),
 
