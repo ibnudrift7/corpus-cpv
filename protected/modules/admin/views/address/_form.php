@@ -80,7 +80,10 @@
 				<?php if ($model->scenario == 'update'): ?>
 				<img style="width: 100%;" src="<?php echo Yii::app()->baseUrl.ImageHelper::thumb(305,203, '/images/address/'.$model->image , array('method' => 'adaptiveResize', 'quality' => '90')) ?>"/>
 				<?php endif; ?>
+
+			<div class="divider10"></div>			
 			
+			<?php echo $form->checkBoxRow($model,'feature',array('class'=>'span12')); ?>
 
 			<?php /*echo $form->textFieldRow($model,'latlng',array('class'=>'span12')); ?>
 

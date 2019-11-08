@@ -558,7 +558,7 @@ class HomeController extends Controller
 
 	public function actionWhatwedo()
 	{
-		$this->pageTitle = 'What We Do - '.$this->pageTitle;
+		$this->pageTitle = 'Our Services - '.$this->pageTitle;
 		$this->layout='//layouts/column2';
 
 		$this->render('whatwedo', array(	

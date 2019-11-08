@@ -50,10 +50,11 @@
 					<div class="box-left-1">
 						<div class="content">
 							<div class="title">
-								<p>What Made Us Unique</p>
+								<p><?php echo $this->setting['about3_title_1'] ?></p>
 							</div>
 							<div class="isi">
-								The main difference with Corpus Prima Ventura from other companies under Corpus Group is that we have capital component. Corpus Prima Ventura is not providing 100% loan, we require the client to have at least 40% from their companies needed to loan.</div>
+								<?php echo strip_tags($this->setting['about3_content_1']) ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -72,10 +73,11 @@
 					<div class="box-right-2">
 						<div class="content">
 							<div class="title">
-								<p>Minimum Capital Percentage</p>
+								<p><?php echo strip_tags($this->setting['about3_title_2']) ?></p>
 							</div>
 							<div class="isi">
-								Compared with other competitors, most of them do not have a required minimum capital percentage. At a glance, this seems unimportant, however this has a great effect on the company's performance due to the percentage size of the loan given.</div>
+								<?php echo strip_tags($this->setting['about3_content_2']) ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -88,16 +90,16 @@
 					<div class="box-left-1">
 						<div class="content">
 							<div class="title">
-								<p>We Work Alongside With You</p>
+								<p><?php echo strip_tags($this->setting['about3_title_3']) ?></p>
 							</div>
 							<div class="isi">
-								Apart from having the required minimum of 40% from their companies, we have option to place our personnel or team in the client's company. The purpose is to ease up the supervision from misuse of funds and consultation.
+								<?php echo strip_tags($this->setting['about3_content_3']) ?>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-30 order-1 order-sm-2">
-					<div class="box-right-1"><img class="w-100 img img-fluid" src="<?php echo Yii::app()->baseUrl.'/images/static/nx_banners_corp_4.jpg'; ?>" alt=""></div>
+					<div class="box-right-1"><img class="w-100 img img-fluid" src="<?php echo Yii::app()->baseUrl.'/images/static/'. $this->setting['about3_pictures_3']; ?>" alt=""></div>
 				</div>
 			</div>
 		</div>

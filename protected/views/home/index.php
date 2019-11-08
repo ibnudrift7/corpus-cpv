@@ -34,7 +34,6 @@
 </section> -->
 
 <section class="home-sec-2" id="div1">
-
 	<div class="prelative container">
 		<div class="box-content">
 			<div class="row">
@@ -47,7 +46,7 @@
 						<p>Why You Need Corpus Prima Ventura</p>
 					</div>
 					<div class="content">
-						Corpus Prima Ventura have successfully helped hundreds of satisfied business in Indonesia. As we know that every busines is unique on it’s own, each solution is customised and therefore we will find the loan that fits your business. With secure financing, good planning and peace of mind, we’ll help you to build your way to success. Our process is very simple:<br><strong>Assess Your Need - Analyze Assets - Get You Funding</strong>
+						<p>Corpus Prima Ventura have successfully helped hundreds of satisfied business in Indonesia. As we know that every busines is unique on it’s own, each solution is customised and therefore we will find the loan that fits your business. With secure financing, good planning and peace of mind, we’ll help you to build your way to success. Our process is very simple:<br><strong>Assess Your Need - Analyze Assets - Get You Funding</strong></p>
 					</div>
 				</div>
 			</div>

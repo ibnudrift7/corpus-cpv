@@ -45,7 +45,7 @@ class Address extends CActiveRecord
 			array('nama, kota', 'length', 'max'=>225),
 			array('address_1, address_2, telp, fax, email', 'length', 'max'=>100),
 			
-			array('sort, image, prov, lat, lng', 'safe'),
+			array('sort, image, prov, lat, lng, feature', 'safe'),
 
 			// array('image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>FALSE, 'on'=>'insert', 'except'=>array('createTemp', 'copy')),
 			// array('image', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>TRUE, 'on'=>'update', 'except'=>array('createTemp', 'copy')),

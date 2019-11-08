@@ -304,9 +304,9 @@ section.home-sec-1{
 section.home-sec-2{
   .box-content{
     padding-top: 115px;
-    .row{
-      max-width: 768px;
-      margin: 0 auto;
+    // .row{
+      // max-width: 768px;
+      // margin: 0 auto;
       // display: block;
       text-align: center;
       .title{
@@ -325,16 +325,30 @@ section.home-sec-2{
         padding-top: 10px;
         p{
           line-height: 1.8;
-          font-size: 14px;color: #333333;font-weight: 400;   
-          b, strong, span{
+          font-size: 16px;
+          color: #333333;
+          font-weight: 400;   
+          b, strong{
             padding-top: 10px;
-            font-size: 17px;color: #000000;font-weight: 600;   
+            font-size: 16px;color: #000000;font-weight: 600;   
             
           }
         }
       }
-    }
+
+    // }
   }
+}
+
+section.home-sec-2 .box-content{
+    max-width: 768px;
+    margin: 0 auto;
+}
+section.home-sec-2 .box-content .content p{
+    font-size: 16px !important;
+    color: #333333;
+    font-weight: 400;   
+    line-height: 1.4 !important;
 }
 
 section.case-sec-1{

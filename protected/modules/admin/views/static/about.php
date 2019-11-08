@@ -175,8 +175,8 @@ $this->pageHeader=array(
 			<div class="widgetcontent">
 				
 				<div class="row-fluid">
-				<?php for ($i=1; $i < 3 ; $i++) { ?>
-					<div class="span6">
+				<?php for ($i=1; $i <= 3 ; $i++) { ?>
+					<div class="span4">
 						<?php $type = 'about3_pictures_'.$i ?>
 						<?php Common::createSetting($type, 'Image', 'image', 'n') ?>
 						<label for="Setting_<?php echo $model[$type]['data']->name ?>" class="control-label required"><?php echo $model[$type]['data']->label ?><span class="required"></span></label>
