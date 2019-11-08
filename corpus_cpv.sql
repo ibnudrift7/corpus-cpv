@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Nov 07, 2019 at 10:22 PM
--- Server version: 10.2.28-MariaDB
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 08 Nov 2019 pada 11.03
+-- Versi server: 10.1.37-MariaDB
+-- Versi PHP: 7.1.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `richmore_corpus-cpv`
+-- Database: `corpus_cpv`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `about_image`
+-- Struktur dari tabel `about_image`
 --
 
 CREATE TABLE `about_image` (
@@ -36,7 +36,7 @@ CREATE TABLE `about_image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `address`
+-- Struktur dari tabel `address`
 --
 
 CREATE TABLE `address` (
@@ -52,27 +52,28 @@ CREATE TABLE `address` (
   `prov` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `sort` int(10) DEFAULT NULL,
-  `lat` text DEFAULT NULL,
-  `lng` text DEFAULT NULL
+  `lat` text,
+  `lng` text,
+  `feature` int(2) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `address`
+-- Dumping data untuk tabel `address`
 --
 
-INSERT INTO `address` (`id`, `category_id`, `nama`, `address_1`, `address_2`, `telp`, `fax`, `image`, `kota`, `prov`, `email`, `sort`, `lat`, `lng`) VALUES
-(1, 0, 'Graha Corpus Surabaya', 'Headquarter', 'Jl. Embong Kenongo No.7-9  Surabaya 60271 - East Java ', 'Phone. (031) 99015353', '', 'cc705-con1 (1).jpg', 'Surabaya', '', '', NULL, '', ''),
-(3, 0, 'Corpus Bali ', 'Branch Office', 'Jl. Raya Padang Luwih No. 8 (Kav. 2)  Kerobokan Kaja - Kuta Utara,  Denpasar, 80361', '', '', 'ded81-con3.jpg', 'Bali ', '', '', NULL, '', ''),
-(4, 0, 'Corpus Malang ', 'Branch Office', 'Jl. Buring No. 1 (Kav. 6)  Oro-Oro Dowo, Klojen  Kota Malang, 65119', '', '', '14fed-con4.jpg', 'Malang', '', '', NULL, '', ''),
-(5, 0, 'Corpus Jakarta ', 'Branch Office', 'Equity Tower 15H  Jl. Jendral Sudirman 52-53 Jakarta Pusat, 12190', '', '', 'd7e9f-con5.jpg', 'Jakarta Pusat', '', '', NULL, '', ''),
-(6, 0, 'Corpus Medan ', 'Branch Office', 'Komplek Ruko Royal Residence  Jl. Palang Merah No. 15-16  20151', '', '', 'd3cb2-con6.jpg', 'Medan ', '', '', NULL, '', ''),
-(7, 0, 'Corpus Bandung ', 'Branch Office', 'Wisma Monex 9C  Jl. Asia Afrika No. 133 40112', '', '', '41398-con7.jpg', 'Bandung', '', '', NULL, '', ''),
-(8, 0, 'Corpus Semarang ', 'Branch Office', 'Jl. Seroja Dalam A2  Karang Kidul, 50241', '', '', '6dd90-con8.jpg', 'Semarang ', '', '', NULL, '', '');
+INSERT INTO `address` (`id`, `category_id`, `nama`, `address_1`, `address_2`, `telp`, `fax`, `image`, `kota`, `prov`, `email`, `sort`, `lat`, `lng`, `feature`) VALUES
+(1, 0, 'Graha Corpus Surabaya', 'Headquarter', 'Jl. Embong Kenongo No.7-9  Surabaya 60271 - East Java ', 'Phone. (031) 99015353', '', 'cc705-con1 (1).jpg', 'Surabaya', '', '', NULL, '', '', 1),
+(3, 0, 'Corpus Bali ', 'Branch Office', 'Jl. Raya Padang Luwih No. 8 (Kav. 2)  Kerobokan Kaja - Kuta Utara,  Denpasar, 80361', '', '', 'ded81-con3.jpg', 'Bali ', '', '', NULL, '', '', 0),
+(4, 0, 'Corpus Malang ', 'Branch Office', 'Jl. Buring No. 1 (Kav. 6)  Oro-Oro Dowo, Klojen  Kota Malang, 65119', '', '', '14fed-con4.jpg', 'Malang', '', '', NULL, '', '', 0),
+(5, 0, 'Corpus Jakarta ', 'Branch Office', 'Equity Tower 15H  Jl. Jendral Sudirman 52-53 Jakarta Pusat, 12190', '', '', 'd7e9f-con5.jpg', 'Jakarta Pusat', '', '', NULL, '', '', 0),
+(6, 0, 'Corpus Medan ', 'Branch Office', 'Komplek Ruko Royal Residence  Jl. Palang Merah No. 15-16  20151', '', '', 'd3cb2-con6.jpg', 'Medan ', '', '', NULL, '', '', 0),
+(7, 0, 'Corpus Bandung ', 'Branch Office', 'Wisma Monex 9C  Jl. Asia Afrika No. 133 40112', '', '', '41398-con7.jpg', 'Bandung', '', '', NULL, '', '', 0),
+(8, 0, 'Corpus Semarang ', 'Branch Office', 'Jl. Seroja Dalam A2  Karang Kidul, 50241', '', '', '6dd90-con8.jpg', 'Semarang ', '', '', NULL, '', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `banner`
+-- Struktur dari tabel `banner`
 --
 
 CREATE TABLE `banner` (
@@ -86,7 +87,7 @@ CREATE TABLE `banner` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city`
+-- Struktur dari tabel `city`
 --
 
 CREATE TABLE `city` (
@@ -99,7 +100,7 @@ CREATE TABLE `city` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `city`
+-- Dumping data untuk tabel `city`
 --
 
 INSERT INTO `city` (`id`, `province_id`, `province`, `type`, `city_name`, `postal_code`) VALUES
@@ -608,7 +609,7 @@ INSERT INTO `city` (`id`, `province_id`, `province`, `type`, `city_name`, `posta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cs_customer`
+-- Struktur dari tabel `cs_customer`
 --
 
 CREATE TABLE `cs_customer` (
@@ -628,7 +629,7 @@ CREATE TABLE `cs_customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cs_customer_address`
+-- Struktur dari tabel `cs_customer_address`
 --
 
 CREATE TABLE `cs_customer_address` (
@@ -647,7 +648,7 @@ CREATE TABLE `cs_customer_address` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factory`
+-- Struktur dari tabel `factory`
 --
 
 CREATE TABLE `factory` (
@@ -662,7 +663,7 @@ CREATE TABLE `factory` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faq`
+-- Struktur dari tabel `faq`
 --
 
 CREATE TABLE `faq` (
@@ -675,7 +676,7 @@ CREATE TABLE `faq` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gal_gallery`
+-- Struktur dari tabel `gal_gallery`
 --
 
 CREATE TABLE `gal_gallery` (
@@ -698,7 +699,7 @@ CREATE TABLE `gal_gallery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gal_gallery_description`
+-- Struktur dari tabel `gal_gallery_description`
 --
 
 CREATE TABLE `gal_gallery_description` (
@@ -714,7 +715,7 @@ CREATE TABLE `gal_gallery_description` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gal_gallery_image`
+-- Struktur dari tabel `gal_gallery_image`
 --
 
 CREATE TABLE `gal_gallery_image` (
@@ -726,7 +727,7 @@ CREATE TABLE `gal_gallery_image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `language`
+-- Struktur dari tabel `language`
 --
 
 CREATE TABLE `language` (
@@ -738,7 +739,7 @@ CREATE TABLE `language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `language`
+-- Dumping data untuk tabel `language`
 --
 
 INSERT INTO `language` (`id`, `name`, `code`, `sort`, `status`) VALUES
@@ -748,22 +749,22 @@ INSERT INTO `language` (`id`, `name`, `code`, `sort`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list_career`
+-- Struktur dari tabel `list_career`
 --
 
 CREATE TABLE `list_career` (
   `id` bigint(20) NOT NULL,
   `title` varchar(225) DEFAULT NULL,
-  `intro_desc` text DEFAULT NULL,
-  `deskripsi` longtext DEFAULT NULL,
-  `kualifikasi` longtext DEFAULT NULL,
+  `intro_desc` text,
+  `deskripsi` longtext,
+  `kualifikasi` longtext,
   `lokasi_kerja` varchar(225) DEFAULT NULL,
   `count` int(10) DEFAULT NULL,
   `actives` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `list_career`
+-- Dumping data untuk tabel `list_career`
 --
 
 INSERT INTO `list_career` (`id`, `title`, `intro_desc`, `deskripsi`, `kualifikasi`, `lokasi_kerja`, `count`, `actives`) VALUES
@@ -773,7 +774,7 @@ INSERT INTO `list_career` (`id`, `title`, `intro_desc`, `deskripsi`, `kualifikas
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list_product`
+-- Struktur dari tabel `list_product`
 --
 
 CREATE TABLE `list_product` (
@@ -801,18 +802,18 @@ CREATE TABLE `list_product` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `log`
+-- Struktur dari tabel `log`
 --
 
 CREATE TABLE `log` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `activity` varchar(100) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `log`
+-- Dumping data untuk tabel `log`
 --
 
 INSERT INTO `log` (`id`, `username`, `activity`, `time`) VALUES
@@ -989,12 +990,29 @@ INSERT INTO `log` (`id`, `username`, `activity`, `time`) VALUES
 (171, 'info@markdesign.net', 'Setting Update', '0000-00-00 00:00:00'),
 (172, 'info@markdesign.net', 'Setting Update', '0000-00-00 00:00:00'),
 (173, 'info@markdesign.net', 'Login: info@markdesign.net', '0000-00-00 00:00:00'),
-(174, 'info@markdesign.net', 'Login: info@markdesign.net', '0000-00-00 00:00:00');
+(174, 'info@markdesign.net', 'Login: info@markdesign.net', '0000-00-00 00:00:00'),
+(175, 'info@markdesign.net', 'Login: info@markdesign.net', '2019-11-08 06:14:14'),
+(176, 'info@markdesign.net', 'Setting Update', '2019-11-08 06:43:44'),
+(177, 'info@markdesign.net', 'Setting Update', '2019-11-08 06:59:00'),
+(178, 'info@markdesign.net', 'Setting Update', '2019-11-08 06:59:23'),
+(179, 'info@markdesign.net', 'Address Controller Update 1', '2019-11-08 07:26:02'),
+(180, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:12:08'),
+(181, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:12:41'),
+(182, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:13:04'),
+(183, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:13:21'),
+(184, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:16:27'),
+(185, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:21:49'),
+(186, 'info@markdesign.net', 'PdfController Create 38', '2019-11-08 09:28:31'),
+(187, 'info@markdesign.net', 'PdfController Create 39', '2019-11-08 09:29:48'),
+(188, 'info@markdesign.net', 'Setting Update', '2019-11-08 09:30:39'),
+(189, 'info@markdesign.net', 'Login: info@markdesign.net', '2019-11-08 09:44:25'),
+(190, 'info@markdesign.net', 'PdfController Create 1', '2019-11-08 09:45:10'),
+(191, 'info@markdesign.net', 'PdfController Create 2', '2019-11-08 09:45:28');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `me_member`
+-- Struktur dari tabel `me_member`
 --
 
 CREATE TABLE `me_member` (
@@ -1003,7 +1021,7 @@ CREATE TABLE `me_member` (
   `first_name` varchar(200) NOT NULL,
   `last_name` varchar(200) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `login_terakhir` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `login_terakhir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `aktivasi` int(11) NOT NULL,
   `aktif` int(11) NOT NULL,
   `image` varchar(200) NOT NULL,
@@ -1015,7 +1033,7 @@ CREATE TABLE `me_member` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `me_member`
+-- Dumping data untuk tabel `me_member`
 --
 
 INSERT INTO `me_member` (`id`, `email`, `first_name`, `last_name`, `pass`, `login_terakhir`, `aktivasi`, `aktif`, `image`, `hp`, `address`, `city`, `province`, `postcode`) VALUES
@@ -1030,7 +1048,7 @@ INSERT INTO `me_member` (`id`, `email`, `first_name`, `last_name`, `pass`, `logi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `or_order`
+-- Struktur dari tabel `or_order`
 --
 
 CREATE TABLE `or_order` (
@@ -1089,7 +1107,7 @@ CREATE TABLE `or_order` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `or_order_history`
+-- Struktur dari tabel `or_order_history`
 --
 
 CREATE TABLE `or_order_history` (
@@ -1105,7 +1123,7 @@ CREATE TABLE `or_order_history` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `or_order_product`
+-- Struktur dari tabel `or_order_product`
 --
 
 CREATE TABLE `or_order_product` (
@@ -1128,7 +1146,7 @@ CREATE TABLE `or_order_product` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `or_order_status`
+-- Struktur dari tabel `or_order_status`
 --
 
 CREATE TABLE `or_order_status` (
@@ -1139,7 +1157,7 @@ CREATE TABLE `or_order_status` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pdf`
+-- Struktur dari tabel `pdf`
 --
 
 CREATE TABLE `pdf` (
@@ -1156,30 +1174,17 @@ CREATE TABLE `pdf` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pdf`
+-- Dumping data untuk tabel `pdf`
 --
 
 INSERT INTO `pdf` (`id`, `category_id`, `nama_id`, `nama_en`, `image`, `file`, `size`, `sort`, `date_input`, `dates`) VALUES
-(34, 1, 'Report PT Corpus Prima Mandiri Konsol 2017', 'PT Corpus Prima Mandiri Console 2017 Report', '', 'Report PT Corpus Prima Mandiri Konsol 2017.pdf', 3575806.000, 2, '2019-06-12 17:18:20', '2018-07-30'),
-(35, 1, 'Lap Audit PT Corpus Prima Mandiri Konsol 31 Des 2016', 'PT Corpus Prima Mandiri Konsol Audit Lap 31 Dec 2016', '', 'Lap Audit PT Corpus Prima Mandiri Konsol 31 Des 2016.pdf', 2832567.000, 3, '2019-06-12 17:19:20', '2018-07-30'),
-(5, 1, 'Laporan Keuangan CPM 2015 Audited', '2015 Audited CPM Financial Report', '', 'LAporan Keuangan CPM 2015 audited.pdf', 4103247.000, 5, '2019-06-12 17:19:49', '2018-09-23'),
-(22, 3, 'September 2017', 'Sept 2017', '', 'Sept CPM.pdf', 1386285.000, 2, '2019-06-12 17:27:02', '2017-09-10'),
-(21, 3, 'Januari 2018', 'January 2018', '', 'JAN 2018 Screen only.pdf', 702246.000, 1, '2019-06-12 17:27:29', '2018-03-10'),
-(32, 3, 'Tentang CPM', 'About CPM', '', '456.pdf', 949771.000, 10, '2019-06-12 17:24:22', '2017-01-01'),
-(23, 3, 'Agustus 2017', 'Aug 2017', '', 'Factsheet Aug.pdf', 3488037.000, 3, '2019-06-12 17:26:56', '2017-08-10'),
-(24, 3, 'Juli 2017', 'July 2017', '', 'Factsheet July web.pdf', 1138107.000, 4, '2019-06-12 17:26:49', '2017-07-10'),
-(25, 3, 'Juni 2017', 'June 2017', '', 'Factsheet June.pdf', 1389912.000, 5, '2019-06-12 17:26:41', '2017-06-10'),
-(26, 3, 'Mei 2017', 'May 2017', '', 'FS May 2b.pdf', 3251012.000, 6, '2019-06-12 17:26:34', '2017-05-10'),
-(27, 3, 'April 2017', 'Apr 2017', '', 'April.pdf', 3074962.000, 7, '2019-06-12 17:26:21', '2017-04-10'),
-(28, 3, 'Maret 2017', 'Mar 2017', '', 'CPM March.pdf', 3275514.000, 8, '2019-06-12 17:26:07', '2017-02-10'),
-(29, 3, 'Februari 2017', 'February 2017', '', 'CPM feb.pdf', 3987493.000, 9, '2019-06-12 17:24:55', '2017-02-10'),
-(31, 3, 'Profil Perusahaan', 'Company Profile', '', 'CPM Compro 72dpi.pdf', 4754259.000, 11, '2019-06-12 17:23:30', '2017-01-01'),
-(37, 1, 'Lap Audit CPM 2013-2014', 'Lap Audit CPM 2013-2014', '', 'Lap Audit CPM 2013-2014.pdf', 4142005.000, 4, '2019-06-12 17:21:51', '2018-09-23');
+(1, 0, 'Persyaratan Calon Debitur', 'Requirements for Prospective Debtors', '', 'penawaran-calon-debitur.pdf', '914318.000', 2, '2019-11-08 16:45:10', NULL),
+(2, 0, 'Form Pengajuan Pembiayaan', 'Financing Application Form', '', 'apk-logo-baru (1).xlsx', '39165.000', 5, '2019-11-08 16:45:28', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_bank`
+-- Struktur dari tabel `pg_bank`
 --
 
 CREATE TABLE `pg_bank` (
@@ -1192,7 +1197,7 @@ CREATE TABLE `pg_bank` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_blog`
+-- Struktur dari tabel `pg_blog`
 --
 
 CREATE TABLE `pg_blog` (
@@ -1209,7 +1214,7 @@ CREATE TABLE `pg_blog` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pg_blog`
+-- Dumping data untuk tabel `pg_blog`
 --
 
 INSERT INTO `pg_blog` (`id`, `topik_id`, `image`, `active`, `date_input`, `date_update`, `insert_by`, `last_update_by`, `category_id`, `writer`) VALUES
@@ -1231,7 +1236,7 @@ INSERT INTO `pg_blog` (`id`, `topik_id`, `image`, `active`, `date_input`, `date_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_blog_description`
+-- Struktur dari tabel `pg_blog_description`
 --
 
 CREATE TABLE `pg_blog_description` (
@@ -1244,7 +1249,7 @@ CREATE TABLE `pg_blog_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pg_blog_description`
+-- Dumping data untuk tabel `pg_blog_description`
 --
 
 INSERT INTO `pg_blog_description` (`id`, `blog_id`, `language_id`, `title`, `content`, `quote`) VALUES
@@ -1283,7 +1288,7 @@ INSERT INTO `pg_blog_description` (`id`, `blog_id`, `language_id`, `title`, `con
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_faq`
+-- Struktur dari tabel `pg_faq`
 --
 
 CREATE TABLE `pg_faq` (
@@ -1294,7 +1299,7 @@ CREATE TABLE `pg_faq` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_faq_description`
+-- Struktur dari tabel `pg_faq_description`
 --
 
 CREATE TABLE `pg_faq_description` (
@@ -1308,7 +1313,7 @@ CREATE TABLE `pg_faq_description` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_list_bank`
+-- Struktur dari tabel `pg_list_bank`
 --
 
 CREATE TABLE `pg_list_bank` (
@@ -1320,18 +1325,18 @@ CREATE TABLE `pg_list_bank` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_pages`
+-- Struktur dari tabel `pg_pages`
 --
 
 CREATE TABLE `pg_pages` (
   `id` int(11) NOT NULL,
   `name` varchar(256) NOT NULL,
-  `type` int(1) NOT NULL DEFAULT 1,
+  `type` int(1) NOT NULL DEFAULT '1',
   `group` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pg_pages`
+-- Dumping data untuk tabel `pg_pages`
 --
 
 INSERT INTO `pg_pages` (`id`, `name`, `type`, `group`) VALUES
@@ -1347,7 +1352,7 @@ INSERT INTO `pg_pages` (`id`, `name`, `type`, `group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_pages_description`
+-- Struktur dari tabel `pg_pages_description`
 --
 
 CREATE TABLE `pg_pages_description` (
@@ -1362,7 +1367,7 @@ CREATE TABLE `pg_pages_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pg_pages_description`
+-- Dumping data untuk tabel `pg_pages_description`
 --
 
 INSERT INTO `pg_pages_description` (`id`, `page_id`, `language_id`, `page_name`, `content`, `meta_title`, `meta_keyword`, `meta_description`) VALUES
@@ -1377,7 +1382,7 @@ INSERT INTO `pg_pages_description` (`id`, `page_id`, `language_id`, `page_name`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_testimonial`
+-- Struktur dari tabel `pg_testimonial`
 --
 
 CREATE TABLE `pg_testimonial` (
@@ -1392,7 +1397,7 @@ CREATE TABLE `pg_testimonial` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_testimonial_description`
+-- Struktur dari tabel `pg_testimonial_description`
 --
 
 CREATE TABLE `pg_testimonial_description` (
@@ -1405,7 +1410,7 @@ CREATE TABLE `pg_testimonial_description` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pg_type_letak`
+-- Struktur dari tabel `pg_type_letak`
 --
 
 CREATE TABLE `pg_type_letak` (
@@ -1419,7 +1424,7 @@ CREATE TABLE `pg_type_letak` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_brand`
+-- Struktur dari tabel `prd_brand`
 --
 
 CREATE TABLE `prd_brand` (
@@ -1437,7 +1442,7 @@ CREATE TABLE `prd_brand` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_brand_description`
+-- Struktur dari tabel `prd_brand_description`
 --
 
 CREATE TABLE `prd_brand_description` (
@@ -1451,7 +1456,7 @@ CREATE TABLE `prd_brand_description` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_category`
+-- Struktur dari tabel `prd_category`
 --
 
 CREATE TABLE `prd_category` (
@@ -1466,7 +1471,7 @@ CREATE TABLE `prd_category` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `prd_category`
+-- Dumping data untuk tabel `prd_category`
 --
 
 INSERT INTO `prd_category` (`id`, `parent_id`, `sort`, `image`, `image2`, `image3`, `type`, `data`) VALUES
@@ -1477,7 +1482,7 @@ INSERT INTO `prd_category` (`id`, `parent_id`, `sort`, `image`, `image2`, `image
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_category_description`
+-- Struktur dari tabel `prd_category_description`
 --
 
 CREATE TABLE `prd_category_description` (
@@ -1490,7 +1495,7 @@ CREATE TABLE `prd_category_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `prd_category_description`
+-- Dumping data untuk tabel `prd_category_description`
 --
 
 INSERT INTO `prd_category_description` (`id`, `category_id`, `language_id`, `name`, `desc`, `data`) VALUES
@@ -1504,7 +1509,7 @@ INSERT INTO `prd_category_description` (`id`, `category_id`, `language_id`, `nam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_category_product`
+-- Struktur dari tabel `prd_category_product`
 --
 
 CREATE TABLE `prd_category_product` (
@@ -1516,7 +1521,7 @@ CREATE TABLE `prd_category_product` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_product`
+-- Struktur dari tabel `prd_product`
 --
 
 CREATE TABLE `prd_product` (
@@ -1544,7 +1549,7 @@ CREATE TABLE `prd_product` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_product_attributes`
+-- Struktur dari tabel `prd_product_attributes`
 --
 
 CREATE TABLE `prd_product_attributes` (
@@ -1559,7 +1564,7 @@ CREATE TABLE `prd_product_attributes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_product_color`
+-- Struktur dari tabel `prd_product_color`
 --
 
 CREATE TABLE `prd_product_color` (
@@ -1573,7 +1578,7 @@ CREATE TABLE `prd_product_color` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_product_description`
+-- Struktur dari tabel `prd_product_description`
 --
 
 CREATE TABLE `prd_product_description` (
@@ -1592,7 +1597,7 @@ CREATE TABLE `prd_product_description` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prd_product_image`
+-- Struktur dari tabel `prd_product_image`
 --
 
 CREATE TABLE `prd_product_image` (
@@ -1604,7 +1609,7 @@ CREATE TABLE `prd_product_image` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sertifikasi`
+-- Struktur dari tabel `sertifikasi`
 --
 
 CREATE TABLE `sertifikasi` (
@@ -1618,7 +1623,7 @@ CREATE TABLE `sertifikasi` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting`
+-- Struktur dari tabel `setting`
 --
 
 CREATE TABLE `setting` (
@@ -1634,7 +1639,7 @@ CREATE TABLE `setting` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `setting`
+-- Dumping data untuk tabel `setting`
 --
 
 INSERT INTO `setting` (`id`, `name`, `label`, `value`, `type`, `hide`, `group`, `dual_language`, `sort`) VALUES
@@ -1690,12 +1695,28 @@ INSERT INTO `setting` (`id`, `name`, `label`, `value`, `type`, `hide`, `group`, 
 (52, 'career_hero_image', 'Image', 'fc7493fbfchero-corpus-career.jpg', 'image', 0, 'data', 'n', 0),
 (53, 'career_hero_title', 'Title', '', 'text', 0, 'data', 'y', 0),
 (54, 'career_content', 'Content', '', 'text', 0, 'data', 'y', 0),
-(55, 'contact_wa', 'Whatsapp', '#', 'text', 0, 'data', 'n', 0);
+(55, 'contact_wa', 'Whatsapp', '#', 'text', 0, 'data', 'n', 0),
+(56, 'about3_pictures_3', 'Image', 'f1bb3bd73fnx_banners_corp_4.jpg', 'image', 0, 'data', 'n', 0),
+(57, 'about3_title_3', 'Title', '', 'text', 0, 'data', 'y', 0),
+(58, 'about3_content_3', 'Content', '', 'text', 0, 'data', 'y', 0),
+(59, 'services_hero_image', 'Image', '3f90fea5baill-hero-about-cpv.jpg', 'image', 0, 'data', 'n', 0),
+(60, 'services_hero_title', 'Title', '', 'text', 0, 'data', 'y', 0),
+(61, 'services_hero_subtitle', 'Sub Title', '', 'text', 0, 'data', 'y', 0),
+(62, 'services2_pictures', 'Image', '7318ef628a51e92-what-we-do-business-advisory (1).jpg', 'image', 0, 'data', 'n', 0),
+(63, 'services2_small_title', 'Small Title', '', 'text', 0, 'data', 'y', 0),
+(64, 'services_content', 'Content', '', 'text', 0, 'data', 'y', 0),
+(65, 'services3_btm_titles', 'Small Title', '', 'text', 0, 'data', 'y', 0),
+(66, 'services3_btm_content_top', 'Top Content', '', 'text', 0, 'data', 'y', 0),
+(67, 'services3_btm_content_bottom', 'Bottom Content', '', 'text', 0, 'data', 'y', 0),
+(68, 'business_hero_image', 'Image', '8f44bc90eeill-hero-about-cpv.jpg', 'image', 0, 'data', 'n', 0),
+(69, 'business_hero_title', 'Title', '', 'text', 0, 'data', 'y', 0),
+(70, 'business_1_content', 'Top Content', '', 'text', 0, 'data', 'y', 0),
+(71, 'business_2_content', 'Bottom Content', '', 'text', 0, 'data', 'y', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `setting_description`
+-- Struktur dari tabel `setting_description`
 --
 
 CREATE TABLE `setting_description` (
@@ -1706,7 +1727,7 @@ CREATE TABLE `setting_description` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `setting_description`
+-- Dumping data untuk tabel `setting_description`
 --
 
 INSERT INTO `setting_description` (`id`, `setting_id`, `language_id`, `value`) VALUES
@@ -1716,9 +1737,9 @@ INSERT INTO `setting_description` (`id`, `setting_id`, `language_id`, `value`) V
 (10, 1, 1, 'Corpus Prima Ventura'),
 (11, 3, 1, 'Corpus Prima Ventura'),
 (12, 2, 1, 'Corpus Prima Ventura'),
-(13, 15, 2, 'Corpus is here to help provide financial solutions so you can focus on what you do best; run your business enterprise.'),
+(13, 15, 2, 'Build your business with good capital and cash flow. Be ready to success with optimistic mind, as we will be at your back.'),
 (14, 15, 3, ' Corpus ada di sini untuk membantu memberikan solusi keuangan sehingga Anda dapat fokus pada apa yang Anda lakukan terbaik; jalankan perusahaan bisnis Anda.'),
-(15, 16, 2, '<p>Whether you\'re just starting to know more about us, or planning for a detailed financial preparations, we\'re here and there’s a place here in Corpus for you. If you\'re ready to talk about your options and possibilities, <a href=\"#contact\">contact us</a> now.</p>'),
+(15, 16, 2, '<p>Besides supplying you with corporate loans, we will work with you and take a close and careful look at the financial needs of your business. We perfectly tailor the finance solution that you need.If you\'re ready to talk about your options and possibilities, contact us now.</p>'),
 (16, 16, 3, '<p>Apakah Anda baru mulai mengetahui lebih banyak tentang kami, atau merencanakan persiapan keuangan terperinci, kami di sini dan di sana ada tempat di Corpus untuk Anda. Jika Anda siap membicarakan opsi dan kemungkinan Anda, hubungi kami sekarang.</p>'),
 (17, 17, 2, 'Schedule A Free Consultation'),
 (18, 17, 3, 'Jadwalkan Konsultasi Secara Gratis'),
@@ -1728,7 +1749,7 @@ INSERT INTO `setting_description` (`id`, `setting_id`, `language_id`, `value`) V
 (22, 20, 3, ' BERITA DAN ACARA'),
 (23, 21, 2, 'Keeping up with Corpus Group'),
 (24, 21, 3, 'Bersama Dengan Corpus Group'),
-(25, 22, 2, '<p>Corpus Financial Group will help businesses and corporations reach their financial goals, whatever their starting point. From Small Enterprise to Go Public business, Corpus has solutions for you. What made Corpus the right partner for you lies on our professionalism, experience and our independece as a non bank institution. In short, we are: <br><strong>Independent - Well Capitalized - A Dedicated Financing Platform - Flexible and Discreet\r\n	</strong>\r\n</p>'),
+(25, 22, 2, '<p>Corpus Prima Ventura have successfully helped hundreds of satisfied business in Indonesia. As we know that every busines is unique on it’s own, each solution is customised and therefore we will find the loan that fits your business. With secure financing, good planning and peace of mind, we’ll help you to build your way to success. Our process is very simple:<br><strong>Assess Your Need - Analyze Assets - Get You Funding</strong></p>'),
 (26, 22, 3, '<p>Corpus Financial Group akan membantu bisnis dan perusahaan mencapai tujuan keuangan mereka, apa pun titik awalnya. Dari Usaha Kecil hingga Bisnis Umum, Corpus memiliki solusi untuk Anda. Apa yang menjadikan Corpus mitra yang tepat bagi Anda terletak pada profesionalisme, pengalaman, dan kemandirian kami sebagai lembaga non-bank. Singkatnya, kita adalah: <br><strong>Independen - Baik Modal - Platform Pembiayaan Khusus - Fleksibel dan Bijaksana</strong><br></p>'),
 (27, 51, 2, '<h5>Prima Ventura - Your Way To Success</h5><h3>Get the funding you need to grow your business and bring your idea to reality</h3><p>We’re a professional corporation under the Corpus group,  with funding capabilities to be poured into a synergistic relationship and venture for your unique and creative minds to happen.</p>'),
 (28, 51, 3, '<h5> Bagaimana kami membantu Anda </h5><h3> Menemukan Anda perspektif dan solusi yang sama sekali baru untuk masa depan finansial Anda yang sukses </h3><p> DUKUNGAN BISNIS & PENASIHAT PASAR MODAL, PERBANKAN INVESTASI, PENASIHAT KEUANGAN DAN AKUISISI MERGER SEMUA DALAM SATU ATAP. </p>'),
@@ -1752,27 +1773,51 @@ INSERT INTO `setting_description` (`id`, `setting_id`, `language_id`, `value`) V
 (46, 38, 3, 'Corpus ada di sini untuk membantu memberikan solusi keuangan terbaik sehingga Anda dapat fokus pada apa yang Anda lakukan; jalankan perusahaan bisnis Anda.\r\n'),
 (47, 39, 2, '<p>Corpus is a financial and management consulting company, established since 2004. The leaders of Corpus have diverse roots and experience, some beginning their careers for more than a decade. With our founders substantial backgrounds in the consulting business for more than 50 years combined, Corpus as a brand, have significantly grown to be one of the most sought after financial and management consulting company, starting from our humble beginnings in Surabaya and now all over the nation\'s biggest cities such as Jakarta, Semarang, Bandung, Bali, and Malang. Delivering sound consultations to enhance company\'s performance and efficiency is one of our key signature services.</p><p>Corpus as a solid group in financial and management consulting company has helped hundreds of business to grow and having their chances to be better in so many ways. As we work with \"Your Success\" in our mind, we will do everything necessary for a long term success in our client\'s side. As we receive so many trust from our clients, we are now more determined and motivated to continuously improve and maintain our high level of service to meet client\'s satisfaction as well as giving a positive contribution to the development of Indonesian financial and economic market.</p>'),
 (48, 39, 3, '<p>Corpus adalah perusahaan konsultan keuangan dan manajemen, didirikan sejak 2004. Para pemimpin Corpus memiliki akar dan pengalaman yang beragam, beberapa memulai karir mereka selama lebih dari satu dekade. Dengan latar belakang pendiri kami yang substansial dalam bisnis konsultasi selama lebih dari 50 tahun digabungkan, Corpus sebagai merek, telah tumbuh secara signifikan menjadi salah satu perusahaan konsultan keuangan dan manajemen yang paling dicari, mulai dari awal kami yang sederhana di Surabaya dan sekarang di seluruh kota-kota terbesar bangsa seperti Jakarta, Semarang, Bandung, Bali, dan Malang. Memberikan konsultasi yang baik untuk meningkatkan kinerja dan efisiensi perusahaan adalah salah satu layanan utama kami.</p><p>Corpus sebagai kelompok yang kuat dalam perusahaan konsultan manajemen dan keuangan telah membantu ratusan bisnis untuk tumbuh dan memiliki peluang untuk menjadi lebih baik dalam banyak hal. Ketika kami bekerja dengan \"Keberhasilan Anda\" di pikiran kami, kami akan melakukan segala yang diperlukan untuk kesuksesan jangka panjang di sisi klien kami. Karena kami menerima begitu banyak kepercayaan dari klien kami, kami sekarang lebih bertekad dan termotivasi untuk terus meningkatkan dan mempertahankan tingkat layanan kami yang tinggi untuk memenuhi kepuasan klien serta memberikan kontribusi positif untuk pengembangan pasar keuangan dan ekonomi Indonesia.</p>'),
-(49, 42, 2, 'Your Success Is What We Stand For'),
+(49, 42, 2, 'What Made Us Unique'),
 (50, 42, 3, 'Kesuksesan Anda Adalah Tujuan Kami'),
-(51, 43, 2, '<p>The idea behind every action of Corpus is clearly, only to bring success to our client\'s business. We deliver a breadth of specialised financial advice tailored to every stage of our clients’ financial journey - whether that is as an individual or a business. Corpus\' quality of work is proven and seen from the high level of trust, depth and quality of relationship given by our existing clients. We seek and value highly a successful long term relationship.</p>'),
+(51, 43, 2, '<p>The main difference with Corpus Prima Ventura from other companies under Corpus Group is that we have capital component. Corpus Prima Ventura is not providing 100% loan, we require the client to have at least 40% from their companies needed to loan.</p>'),
 (52, 43, 3, '<p>Gagasan di balik setiap tindakan Corpus jelas, hanya untuk membawa kesuksesan bagi bisnis klien kami. Kami memberikan sejumlah saran keuangan khusus yang disesuaikan dengan setiap tahap perjalanan keuangan klien kami - baik itu sebagai individu atau bisnis. Kualitas kerja Corpus terbukti dan dilihat dari tingkat kepercayaan yang tinggi, kedalaman dan kualitas hubungan yang diberikan oleh klien kami yang ada. Kami mencari dan sangat menghargai hubungan jangka panjang yang sukses.</p>'),
-(53, 45, 2, 'Our Strength Is Our People\r\n\r\n'),
+(53, 45, 2, 'Minimum Capital Percentage'),
 (54, 45, 3, 'Kekuatan Kami Adalah Karyawan Kami'),
-(55, 46, 2, '<p>Corpus\' team of professionals with vast knowledge and experience are dedicated to present straight to the point consultation on financial and management to maximize and push your business performance further. Our service of excellence extends from business advisory, investment banking, accounting service, transaction support and capital market advisory, financial restructuring advisory to merger acquisition. To ensure progressive transformation goes as smooth as possible, we provide team support via coaching, tutorials, counseling and training arrangement.</p>'),
+(55, 46, 2, '<p>Compared with other competitors, most of them do not have a required minimum capital percentage. At a glance, this seems unimportant, however this has a great effect on the company\'s performance due to the percentage size of the loan given.</p>'),
 (56, 46, 3, '<p>Tim profesional Corpus dengan pengetahuan dan pengalaman yang luas berdedikasi untuk memberikan konsultasi langsung mengenai keuangan dan manajemen untuk memaksimalkan dan mendorong kinerja bisnis Anda lebih jauh. Layanan keunggulan kami mencakup penasihat bisnis, perbankan investasi, layanan akuntansi, dukungan transaksi, dan penasihat pasar modal, penasihat restrukturisasi keuangan hingga akuisisi merger. Untuk memastikan transformasi progresif berjalan semulus mungkin, kami menyediakan dukungan tim melalui pelatihan, tutorial, konseling dan pengaturan pelatihan.</p>'),
-(57, 47, 2, '<p>To become a management, financial and strategic business consulting company who contribute for Indonesia development process.<br></p>'),
+(57, 47, 2, '<p>To become a management, financial and strategic business consulting company who contribute for Indonesia development process</p>'),
 (58, 47, 3, '<p>Menjadi perusahaan konsultan bisnis, manajemen keuangan dan strategis yang berkontribusi untuk proses pembangunan Indonesia.</p>'),
 (59, 48, 2, '<p>To become a good parter for evolve demanding companies to solve their problems and enhance their performances.</p>'),
 (60, 48, 3, '<p>Untuk menjadi mitra yang baik bagi perusahaan yang sedang berkembang menuntut untuk menyelesaikan masalah mereka dan meningkatkan kinerja mereka.</p>'),
 (61, 49, 2, 'MEET OUR PEOPLE'),
 (62, 49, 3, 'TEMUKAN ORANG-ORANG KAMI'),
 (63, 50, 2, 'The Minds Behind Corpus Prima Ventura'),
-(64, 50, 3, 'Pikiran Di Balik Corpus');
+(64, 50, 3, 'Pikiran Di Balik Corpus'),
+(65, 57, 2, 'We Work Alongside With You'),
+(66, 57, 3, ''),
+(67, 58, 2, '<p>Apart from having the required minimum of 40% from their companies, we have option to place our personnel or team in the client\'s company. The purpose is to ease up the supervision from misuse of funds and consultation.</p>'),
+(68, 58, 3, ''),
+(69, 60, 2, 'Our Services'),
+(70, 60, 3, 'Layanan Kami'),
+(71, 61, 2, 'Helping you to grow and perform optimally'),
+(72, 61, 3, 'Membantu Anda tumbuh dan tampil optimal'),
+(73, 63, 2, 'Service Introduction'),
+(74, 63, 3, 'Pendahuluan Layanan'),
+(75, 64, 2, '<h4>Corpus Prima Ventura was established on 30 June 2014 as a part of Corpus Prima Mandiri. We provide funding solutions for businesses. We believe in helping businesses with an entrepreneurial spirit, integrity, passion, and commitment to thrive in what they do. We are registered with and overseen by Otoritas Jasa Keuangan (OJK).</h4><p>Corpus Prima Ventura provides professional business solutions to clients. We also provide monetary support in the form of capital to startup companies, ailing companies and growing companies. We always strive to do our best for our clients. Presently, Corpus Prima Ventura is one of the leading and most profitable venture capital company in Indonesia.\r\n</p>'),
+(76, 64, 3, '<h4>Corpus Prima Ventura didirikan pada 30 Juni 2014 sebagai bagian dari Corpus Prima Mandiri. Kami menyediakan solusi pendanaan untuk bisnis. Kami percaya dalam membantu bisnis dengan semangat kewirausahaan, integritas, semangat, dan komitmen untuk berkembang dalam apa yang mereka lakukan. Kami terdaftar dan diawasi oleh Otoritas Jasa Keuangan (OJK).</h4><p>Corpus Prima Ventura memberikan solusi bisnis profesional kepada klien. Kami juga menyediakan dukungan moneter dalam bentuk modal untuk perusahaan pemula, perusahaan yang sakit dan perusahaan yang sedang berkembang. Kami selalu berusaha untuk melakukan yang terbaik untuk klien kami. Saat ini, Corpus Prima Ventura adalah salah satu perusahaan modal ventura terkemuka dan paling menguntungkan di Indonesia.</p>'),
+(77, 65, 2, ' Our Services'),
+(78, 65, 3, 'Layanan Kami'),
+(79, 66, 2, '<h4>01. Venture Capital</h4><p>Joint investment contract made between Corpus and the custodian bank, where Corpus as PMV is given the authority to manage the funds you invest\r\n</p>'),
+(80, 66, 3, '<h4>01. Modal Ventura</h4><p>Kontrak investasi gabungan yang dibuat antara Corpus dan bank kustodian, di mana Corpus sebagai PMV diberi wewenang untuk mengelola dana yang Anda investasikan</p>'),
+(81, 67, 2, '<h4>02. Capital Funding Facility</h4><h5>Productive Business Financing</h5><ul>\r\n	<li>Financing of productive activities must be carried out in the form of distribution of funds to debtors that aim to produce goods and / or services that can increase income.</li>\r\n	<li>This financing is carried out in the form of providing capital to business partners for a certain period of time for productive business activities with profit sharing in accordance with the agreement of both parties.</li>\r\n</ul><h5>Equity Participation</h5><p>Investments in shares are made through the purchase of shares from business partners that have not yet been traded on the stock exchange.\r\n</p><h5>Obligation Conversion</h5><p>Financing can also be in the form of purchasing a certificate of ownership conversion bond set forth in an agreement with a notary.\r\n</p>'),
+(82, 67, 3, '<h4>02. Fasilitas Pendanaan Modal</h4><h5>Pembiayaan Bisnis Produktif</h5><ul>\r\n	<li>Pendanaan kegiatan produktif harus dilakukan dalam bentuk distribusi dana kepada debitur yang bertujuan untuk menghasilkan barang dan / atau jasa yang dapat meningkatkan pendapatan.</li>\r\n	<li>Pembiayaan ini dilakukan dalam bentuk penyediaan modal kepada mitra bisnis untuk jangka waktu tertentu untuk kegiatan bisnis yang produktif dengan bagi hasil sesuai dengan kesepakatan kedua belah pihak.</li>\r\n</ul><h5>Partisipasi Ekuitas</h5><p>Investasi dalam saham dilakukan melalui pembelian saham dari mitra bisnis yang belum diperdagangkan di bursa.\r\n</p><h5>Konversi Kewajiban\r\n</h5><p>Pembiayaan juga dapat dalam bentuk pembelian sertifikat obligasi konversi kepemilikan yang ditetapkan dalam perjanjian dengan notaris.\r\n</p>'),
+(83, 69, 2, 'Apply For Your Business'),
+(84, 69, 3, 'Terapkan Untuk Bisnis Anda'),
+(85, 70, 2, '<p>We are eager to know you more, schedule a meeting with Corpus and allow us to find the best solutions available to benefit your business.</p>'),
+(86, 70, 3, '<p>Kami sangat ingin mengenal Anda lebih banyak, menjadwalkan pertemuan dengan Corpus dan memungkinkan kami menemukan solusi terbaik yang tersedia untuk kepentingan bisnis Anda.</p>'),
+(87, 71, 2, '<p>You can download the form to fill it then scan and send it to us via email <a href=\"mailto:admin.cpv@corpus.co.id\">admin.cpv@corpus.co.id</a> or Whatsapp at<a href=\"https://wa.me/62811318553\"> 0811318553</a></p>'),
+(88, 71, 3, '<p>Anda dapat mengunduh formulir untuk mengisinya kemudian memindai dan mengirimkannya kepada kami melalui email <a href=\"mailto:admin.cpv@corpus.co.id\">admin.cpv@corpus.co.id</a> atau Whatsapp di <a href=\"http://wa.me/62811318553\">0811318553</a></p>');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shp_shipping_price`
+-- Struktur dari tabel `shp_shipping_price`
 --
 
 CREATE TABLE `shp_shipping_price` (
@@ -1785,7 +1830,7 @@ CREATE TABLE `shp_shipping_price` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sl_slide`
+-- Struktur dari tabel `sl_slide`
 --
 
 CREATE TABLE `sl_slide` (
@@ -1803,7 +1848,7 @@ CREATE TABLE `sl_slide` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sl_slide`
+-- Dumping data untuk tabel `sl_slide`
 --
 
 INSERT INTO `sl_slide` (`id`, `topik_id`, `image`, `active`, `date_input`, `date_update`, `insert_by`, `last_update_by`, `writer`, `sort`, `image2`) VALUES
@@ -1814,7 +1859,7 @@ INSERT INTO `sl_slide` (`id`, `topik_id`, `image`, `active`, `date_input`, `date
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sl_slide_description`
+-- Struktur dari tabel `sl_slide_description`
 --
 
 CREATE TABLE `sl_slide_description` (
@@ -1829,7 +1874,7 @@ CREATE TABLE `sl_slide_description` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `sl_slide_description`
+-- Dumping data untuk tabel `sl_slide_description`
 --
 
 INSERT INTO `sl_slide_description` (`id`, `slide_id`, `language_id`, `title`, `subtitle`, `content`, `url_teks`, `url`) VALUES
@@ -1847,7 +1892,7 @@ INSERT INTO `sl_slide_description` (`id`, `slide_id`, `language_id`, `title`, `s
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_group`
+-- Struktur dari tabel `tb_group`
 --
 
 CREATE TABLE `tb_group` (
@@ -1858,7 +1903,7 @@ CREATE TABLE `tb_group` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_group`
+-- Dumping data untuk tabel `tb_group`
 --
 
 INSERT INTO `tb_group` (`id`, `group`, `aktif`, `akses`) VALUES
@@ -1867,7 +1912,7 @@ INSERT INTO `tb_group` (`id`, `group`, `aktif`, `akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_menu_akses`
+-- Struktur dari tabel `tb_menu_akses`
 --
 
 CREATE TABLE `tb_menu_akses` (
@@ -1880,7 +1925,7 @@ CREATE TABLE `tb_menu_akses` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_menu_akses`
+-- Dumping data untuk tabel `tb_menu_akses`
 --
 
 INSERT INTO `tb_menu_akses` (`id`, `type`, `name`, `controller`, `action`, `sub_action`) VALUES
@@ -1900,7 +1945,7 @@ INSERT INTO `tb_menu_akses` (`id`, `type`, `name`, `controller`, `action`, `sub_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_services`
+-- Struktur dari tabel `tb_services`
 --
 
 CREATE TABLE `tb_services` (
@@ -1911,7 +1956,7 @@ CREATE TABLE `tb_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_services`
+-- Dumping data untuk tabel `tb_services`
 --
 
 INSERT INTO `tb_services` (`id`, `image`, `sorting`, `status`) VALUES
@@ -1925,7 +1970,7 @@ INSERT INTO `tb_services` (`id`, `image`, `sorting`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_services_description`
+-- Struktur dari tabel `tb_services_description`
 --
 
 CREATE TABLE `tb_services_description` (
@@ -1933,13 +1978,13 @@ CREATE TABLE `tb_services_description` (
   `services_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `title` varchar(225) DEFAULT NULL,
-  `content` text DEFAULT NULL,
-  `benefit` longtext DEFAULT NULL,
-  `application` longtext DEFAULT NULL
+  `content` text,
+  `benefit` longtext,
+  `application` longtext
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_services_description`
+-- Dumping data untuk tabel `tb_services_description`
 --
 
 INSERT INTO `tb_services_description` (`id`, `services_id`, `language_id`, `title`, `content`, `benefit`, `application`) VALUES
@@ -1959,7 +2004,7 @@ INSERT INTO `tb_services_description` (`id`, `services_id`, `language_id`, `titl
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_teams_list`
+-- Struktur dari tabel `tb_teams_list`
 --
 
 CREATE TABLE `tb_teams_list` (
@@ -1968,13 +2013,13 @@ CREATE TABLE `tb_teams_list` (
   `title` varchar(225) DEFAULT NULL,
   `position_en` varchar(225) DEFAULT NULL,
   `position_id` varchar(225) DEFAULT NULL,
-  `content` text DEFAULT NULL,
+  `content` text,
   `sortings` int(5) DEFAULT NULL,
   `actives` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_teams_list`
+-- Dumping data untuk tabel `tb_teams_list`
 --
 
 INSERT INTO `tb_teams_list` (`id`, `image`, `title`, `position_en`, `position_id`, `content`, `sortings`, `actives`) VALUES
@@ -1984,7 +2029,7 @@ INSERT INTO `tb_teams_list` (`id`, `image`, `title`, `position_en`, `position_id
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_user`
+-- Struktur dari tabel `tb_user`
 --
 
 CREATE TABLE `tb_user` (
@@ -1994,7 +2039,7 @@ CREATE TABLE `tb_user` (
   `pass` varchar(100) NOT NULL,
   `type` varchar(50) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `login_terakhir` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `login_terakhir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `aktivasi` int(11) NOT NULL,
   `aktif` int(11) NOT NULL,
   `user_input` varchar(200) NOT NULL,
@@ -2004,7 +2049,7 @@ CREATE TABLE `tb_user` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_user`
+-- Dumping data untuk tabel `tb_user`
 --
 
 INSERT INTO `tb_user` (`id`, `email`, `nama`, `pass`, `type`, `group_id`, `login_terakhir`, `aktivasi`, `aktif`, `user_input`, `tanggal_input`, `initial`, `image`) VALUES
@@ -2014,7 +2059,7 @@ INSERT INTO `tb_user` (`id`, `email`, `nama`, `pass`, `type`, `group_id`, `login
 -- --------------------------------------------------------
 
 --
--- Table structure for table `to_toko`
+-- Struktur dari tabel `to_toko`
 --
 
 CREATE TABLE `to_toko` (
@@ -2023,7 +2068,7 @@ CREATE TABLE `to_toko` (
   `first_name` varchar(200) NOT NULL,
   `last_name` varchar(200) NOT NULL,
   `pass` varchar(100) NOT NULL,
-  `login_terakhir` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `login_terakhir` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `aktivasi` int(11) NOT NULL,
   `aktif` int(11) NOT NULL,
   `image` varchar(200) NOT NULL,
@@ -2037,7 +2082,7 @@ CREATE TABLE `to_toko` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `to_toko`
+-- Dumping data untuk tabel `to_toko`
 --
 
 INSERT INTO `to_toko` (`id`, `email`, `first_name`, `last_name`, `pass`, `login_terakhir`, `aktivasi`, `aktif`, `image`, `hp`, `address`, `city`, `province`, `postcode`, `nama_toko`, `lokasi`) VALUES
@@ -2047,7 +2092,7 @@ INSERT INTO `to_toko` (`id`, `email`, `first_name`, `last_name`, `pass`, `login_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `to_toko_product`
+-- Struktur dari tabel `to_toko_product`
 --
 
 CREATE TABLE `to_toko_product` (
@@ -2057,7 +2102,7 @@ CREATE TABLE `to_toko_product` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `to_toko_product`
+-- Dumping data untuk tabel `to_toko_product`
 --
 
 INSERT INTO `to_toko_product` (`id`, `toko_id`, `product_id`) VALUES
@@ -2081,7 +2126,7 @@ INSERT INTO `to_toko_product` (`id`, `toko_id`, `product_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trips`
+-- Struktur dari tabel `trips`
 --
 
 CREATE TABLE `trips` (
@@ -2094,7 +2139,7 @@ CREATE TABLE `trips` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `trips`
+-- Dumping data untuk tabel `trips`
 --
 
 INSERT INTO `trips` (`id`, `year`, `month`, `awal`, `akhir`, `trip`) VALUES
@@ -2105,7 +2150,7 @@ INSERT INTO `trips` (`id`, `year`, `month`, `awal`, `akhir`, `trip`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tt_text`
+-- Struktur dari tabel `tt_text`
 --
 
 CREATE TABLE `tt_text` (
@@ -2115,7 +2160,7 @@ CREATE TABLE `tt_text` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tt_text`
+-- Dumping data untuk tabel `tt_text`
 --
 
 INSERT INTO `tt_text` (`id`, `category`, `message`) VALUES
@@ -2211,258 +2256,260 @@ INSERT INTO `tt_text` (`id`, `category`, `message`) VALUES
 (90, 'front', 'Also in the Insights'),
 (91, 'front', 'Case Studies'),
 (92, 'front', 'Learn More About Our Services'),
-(93, 'front', 'View More Case Studies');
+(93, 'front', 'View More Case Studies'),
+(94, 'admin', 'Documents Apply Business'),
+(95, 'front', 'Apply For Your Business');
 
 -- --------------------------------------------------------
 --
--- Structure for view `view_blog`
+-- Struktur untuk view `view_blog`
 --
 DROP TABLE IF EXISTS `view_blog`;
 
-CREATE VIEW `view_blog`  AS  select `pg_blog`.`id` AS `id`,`pg_blog`.`topik_id` AS `topik_id`,`pg_blog`.`image` AS `image`,`pg_blog`.`active` AS `active`,`pg_blog`.`date_input` AS `date_input`,`pg_blog`.`date_update` AS `date_update`,`pg_blog`.`insert_by` AS `insert_by`,`pg_blog`.`last_update_by` AS `last_update_by`,`pg_blog`.`writer` AS `writer`,`pg_blog_description`.`id` AS `id2`,`pg_blog_description`.`blog_id` AS `blog_id`,`pg_blog_description`.`language_id` AS `language_id`,`pg_blog_description`.`title` AS `title`,`pg_blog_description`.`content` AS `content`,`pg_blog_description`.`quote` AS `quote` from (`pg_blog` join `pg_blog_description` on(`pg_blog`.`id` = `pg_blog_description`.`blog_id`)) ;
+CREATE VIEW `view_blog`  AS  select `pg_blog`.`id` AS `id`,`pg_blog`.`topik_id` AS `topik_id`,`pg_blog`.`image` AS `image`,`pg_blog`.`active` AS `active`,`pg_blog`.`date_input` AS `date_input`,`pg_blog`.`date_update` AS `date_update`,`pg_blog`.`insert_by` AS `insert_by`,`pg_blog`.`last_update_by` AS `last_update_by`,`pg_blog`.`writer` AS `writer`,`pg_blog_description`.`id` AS `id2`,`pg_blog_description`.`blog_id` AS `blog_id`,`pg_blog_description`.`language_id` AS `language_id`,`pg_blog_description`.`title` AS `title`,`pg_blog_description`.`content` AS `content`,`pg_blog_description`.`quote` AS `quote` from (`pg_blog` join `pg_blog_description` on((`pg_blog`.`id` = `pg_blog_description`.`blog_id`))) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `view_category`
+-- Struktur untuk view `view_category`
 --
 DROP TABLE IF EXISTS `view_category`;
 
-CREATE VIEW `view_category`  AS  select `prd_category`.`id` AS `id`,`prd_category`.`parent_id` AS `parent_id`,`prd_category`.`sort` AS `sort`,`prd_category`.`image` AS `image`,`prd_category`.`type` AS `type`,`prd_category`.`data` AS `data`,`prd_category_description`.`id` AS `id2`,`prd_category_description`.`category_id` AS `category_id`,`prd_category_description`.`language_id` AS `language_id`,`prd_category_description`.`name` AS `name`,`prd_category_description`.`data` AS `data2` from (`prd_category` join `prd_category_description` on(`prd_category`.`id` = `prd_category_description`.`category_id`)) ;
+CREATE VIEW `view_category`  AS  select `prd_category`.`id` AS `id`,`prd_category`.`parent_id` AS `parent_id`,`prd_category`.`sort` AS `sort`,`prd_category`.`image` AS `image`,`prd_category`.`type` AS `type`,`prd_category`.`data` AS `data`,`prd_category_description`.`id` AS `id2`,`prd_category_description`.`category_id` AS `category_id`,`prd_category_description`.`language_id` AS `language_id`,`prd_category_description`.`name` AS `name`,`prd_category_description`.`data` AS `data2` from (`prd_category` join `prd_category_description` on((`prd_category`.`id` = `prd_category_description`.`category_id`))) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `view_gallery`
+-- Struktur untuk view `view_gallery`
 --
 DROP TABLE IF EXISTS `view_gallery`;
 
-CREATE VIEW `view_gallery`  AS  select `gal_gallery`.`id` AS `id`,`gal_gallery`.`topik_id` AS `topik_id`,`gal_gallery`.`image` AS `image`,`gal_gallery`.`image2` AS `image2`,`gal_gallery`.`active` AS `active`,`gal_gallery`.`date_input` AS `date_input`,`gal_gallery`.`date_update` AS `date_update`,`gal_gallery`.`insert_by` AS `insert_by`,`gal_gallery`.`last_update_by` AS `last_update_by`,`gal_gallery`.`writer` AS `writer`,`gal_gallery`.`city` AS `city`,`gal_gallery`.`harga` AS `harga`,`gal_gallery`.`color` AS `color`,`gal_gallery`.`orientation` AS `orientation`,`gal_gallery_description`.`id` AS `id2`,`gal_gallery_description`.`gallery_id` AS `gallery_id`,`gal_gallery_description`.`language_id` AS `language_id`,`gal_gallery_description`.`title` AS `title`,`gal_gallery_description`.`sub_title` AS `sub_title`,`gal_gallery_description`.`sub_title_2` AS `sub_title_2`,`gal_gallery_description`.`content` AS `content` from (`gal_gallery` join `gal_gallery_description` on(`gal_gallery`.`id` = `gal_gallery_description`.`gallery_id`)) ;
+CREATE VIEW `view_gallery`  AS  select `gal_gallery`.`id` AS `id`,`gal_gallery`.`topik_id` AS `topik_id`,`gal_gallery`.`image` AS `image`,`gal_gallery`.`image2` AS `image2`,`gal_gallery`.`active` AS `active`,`gal_gallery`.`date_input` AS `date_input`,`gal_gallery`.`date_update` AS `date_update`,`gal_gallery`.`insert_by` AS `insert_by`,`gal_gallery`.`last_update_by` AS `last_update_by`,`gal_gallery`.`writer` AS `writer`,`gal_gallery`.`city` AS `city`,`gal_gallery`.`harga` AS `harga`,`gal_gallery`.`color` AS `color`,`gal_gallery`.`orientation` AS `orientation`,`gal_gallery_description`.`id` AS `id2`,`gal_gallery_description`.`gallery_id` AS `gallery_id`,`gal_gallery_description`.`language_id` AS `language_id`,`gal_gallery_description`.`title` AS `title`,`gal_gallery_description`.`sub_title` AS `sub_title`,`gal_gallery_description`.`sub_title_2` AS `sub_title_2`,`gal_gallery_description`.`content` AS `content` from (`gal_gallery` join `gal_gallery_description` on((`gal_gallery`.`id` = `gal_gallery_description`.`gallery_id`))) ;
 
 -- --------------------------------------------------------
 
 --
--- Structure for view `view_slide`
+-- Struktur untuk view `view_slide`
 --
 DROP TABLE IF EXISTS `view_slide`;
 
-CREATE VIEW `view_slide`  AS  select `sl_slide`.`id` AS `id`,`sl_slide`.`topik_id` AS `topik_id`,`sl_slide`.`image` AS `image`,`sl_slide`.`active` AS `active`,`sl_slide`.`date_input` AS `date_input`,`sl_slide`.`date_update` AS `date_update`,`sl_slide`.`insert_by` AS `insert_by`,`sl_slide`.`last_update_by` AS `last_update_by`,`sl_slide`.`writer` AS `writer`,`sl_slide_description`.`id` AS `id2`,`sl_slide_description`.`slide_id` AS `slide_id`,`sl_slide_description`.`language_id` AS `language_id`,`sl_slide_description`.`title` AS `title`,`sl_slide_description`.`content` AS `content`,`sl_slide_description`.`url` AS `url`,`sl_slide`.`sort` AS `sort` from (`sl_slide` join `sl_slide_description` on(`sl_slide_description`.`slide_id` = `sl_slide`.`id`)) ;
+CREATE VIEW `view_slide`  AS  select `sl_slide`.`id` AS `id`,`sl_slide`.`topik_id` AS `topik_id`,`sl_slide`.`image` AS `image`,`sl_slide`.`active` AS `active`,`sl_slide`.`date_input` AS `date_input`,`sl_slide`.`date_update` AS `date_update`,`sl_slide`.`insert_by` AS `insert_by`,`sl_slide`.`last_update_by` AS `last_update_by`,`sl_slide`.`writer` AS `writer`,`sl_slide_description`.`id` AS `id2`,`sl_slide_description`.`slide_id` AS `slide_id`,`sl_slide_description`.`language_id` AS `language_id`,`sl_slide_description`.`title` AS `title`,`sl_slide_description`.`content` AS `content`,`sl_slide_description`.`url` AS `url`,`sl_slide`.`sort` AS `sort` from (`sl_slide` join `sl_slide_description` on((`sl_slide_description`.`slide_id` = `sl_slide`.`id`))) ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `about_image`
+-- Indeks untuk tabel `about_image`
 --
 ALTER TABLE `about_image`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `address`
+-- Indeks untuk tabel `address`
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `banner`
+-- Indeks untuk tabel `banner`
 --
 ALTER TABLE `banner`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `city`
+-- Indeks untuk tabel `city`
 --
 ALTER TABLE `city`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `cs_customer`
+-- Indeks untuk tabel `cs_customer`
 --
 ALTER TABLE `cs_customer`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- Indexes for table `cs_customer_address`
+-- Indeks untuk tabel `cs_customer_address`
 --
 ALTER TABLE `cs_customer_address`
   ADD PRIMARY KEY (`id`),
   ADD KEY `customer_id` (`customer_id`);
 
 --
--- Indexes for table `factory`
+-- Indeks untuk tabel `factory`
 --
 ALTER TABLE `factory`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `faq`
+-- Indeks untuk tabel `faq`
 --
 ALTER TABLE `faq`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `gal_gallery`
+-- Indeks untuk tabel `gal_gallery`
 --
 ALTER TABLE `gal_gallery`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `gal_gallery_description`
+-- Indeks untuk tabel `gal_gallery_description`
 --
 ALTER TABLE `gal_gallery_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `language_id` (`language_id`);
 
 --
--- Indexes for table `gal_gallery_image`
+-- Indeks untuk tabel `gal_gallery_image`
 --
 ALTER TABLE `gal_gallery_image`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`gallery_id`);
 
 --
--- Indexes for table `language`
+-- Indeks untuk tabel `language`
 --
 ALTER TABLE `language`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `list_career`
+-- Indeks untuk tabel `list_career`
 --
 ALTER TABLE `list_career`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `log`
+-- Indeks untuk tabel `log`
 --
 ALTER TABLE `log`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `me_member`
+-- Indeks untuk tabel `me_member`
 --
 ALTER TABLE `me_member`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- Indexes for table `or_order`
+-- Indeks untuk tabel `or_order`
 --
 ALTER TABLE `or_order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `or_order_history`
+-- Indeks untuk tabel `or_order_history`
 --
 ALTER TABLE `or_order_history`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `or_order_product`
+-- Indeks untuk tabel `or_order_product`
 --
 ALTER TABLE `or_order_product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_id` (`order_id`);
 
 --
--- Indexes for table `or_order_status`
+-- Indeks untuk tabel `or_order_status`
 --
 ALTER TABLE `or_order_status`
   ADD PRIMARY KEY (`order_status_id`);
 
 --
--- Indexes for table `pdf`
+-- Indeks untuk tabel `pdf`
 --
 ALTER TABLE `pdf`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_bank`
+-- Indeks untuk tabel `pg_bank`
 --
 ALTER TABLE `pg_bank`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_blog`
+-- Indeks untuk tabel `pg_blog`
 --
 ALTER TABLE `pg_blog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_blog_description`
+-- Indeks untuk tabel `pg_blog_description`
 --
 ALTER TABLE `pg_blog_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `language_id` (`language_id`);
 
 --
--- Indexes for table `pg_faq`
+-- Indeks untuk tabel `pg_faq`
 --
 ALTER TABLE `pg_faq`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_faq_description`
+-- Indeks untuk tabel `pg_faq_description`
 --
 ALTER TABLE `pg_faq_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `language_id` (`language_id`);
 
 --
--- Indexes for table `pg_list_bank`
+-- Indeks untuk tabel `pg_list_bank`
 --
 ALTER TABLE `pg_list_bank`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_pages`
+-- Indeks untuk tabel `pg_pages`
 --
 ALTER TABLE `pg_pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_pages_description`
+-- Indeks untuk tabel `pg_pages_description`
 --
 ALTER TABLE `pg_pages_description`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_testimonial`
+-- Indeks untuk tabel `pg_testimonial`
 --
 ALTER TABLE `pg_testimonial`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_testimonial_description`
+-- Indeks untuk tabel `pg_testimonial_description`
 --
 ALTER TABLE `pg_testimonial_description`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pg_type_letak`
+-- Indeks untuk tabel `pg_type_letak`
 --
 ALTER TABLE `pg_type_letak`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prd_brand`
+-- Indeks untuk tabel `prd_brand`
 --
 ALTER TABLE `prd_brand`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prd_brand_description`
+-- Indeks untuk tabel `prd_brand_description`
 --
 ALTER TABLE `prd_brand_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `language_id` (`language_id`);
 
 --
--- Indexes for table `prd_category`
+-- Indeks untuk tabel `prd_category`
 --
 ALTER TABLE `prd_category`
   ADD PRIMARY KEY (`id`),
@@ -2470,137 +2517,137 @@ ALTER TABLE `prd_category`
   ADD KEY `type` (`type`);
 
 --
--- Indexes for table `prd_category_description`
+-- Indeks untuk tabel `prd_category_description`
 --
 ALTER TABLE `prd_category_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`,`language_id`);
 
 --
--- Indexes for table `prd_category_product`
+-- Indeks untuk tabel `prd_category_product`
 --
 ALTER TABLE `prd_category_product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `prd_product`
+-- Indeks untuk tabel `prd_product`
 --
 ALTER TABLE `prd_product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
 --
--- Indexes for table `prd_product_attributes`
+-- Indeks untuk tabel `prd_product_attributes`
 --
 ALTER TABLE `prd_product_attributes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `prd_product_color`
+-- Indeks untuk tabel `prd_product_color`
 --
 ALTER TABLE `prd_product_color`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `prd_product_description`
+-- Indeks untuk tabel `prd_product_description`
 --
 ALTER TABLE `prd_product_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`,`language_id`);
 
 --
--- Indexes for table `prd_product_image`
+-- Indeks untuk tabel `prd_product_image`
 --
 ALTER TABLE `prd_product_image`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `sertifikasi`
+-- Indeks untuk tabel `sertifikasi`
 --
 ALTER TABLE `sertifikasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setting`
+-- Indeks untuk tabel `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `setting_description`
+-- Indeks untuk tabel `setting_description`
 --
 ALTER TABLE `setting_description`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `shp_shipping_price`
+-- Indeks untuk tabel `shp_shipping_price`
 --
 ALTER TABLE `shp_shipping_price`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sl_slide`
+-- Indeks untuk tabel `sl_slide`
 --
 ALTER TABLE `sl_slide`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sl_slide_description`
+-- Indeks untuk tabel `sl_slide_description`
 --
 ALTER TABLE `sl_slide_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `language_id` (`language_id`);
 
 --
--- Indexes for table `tb_group`
+-- Indeks untuk tabel `tb_group`
 --
 ALTER TABLE `tb_group`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_menu_akses`
+-- Indeks untuk tabel `tb_menu_akses`
 --
 ALTER TABLE `tb_menu_akses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_services`
+-- Indeks untuk tabel `tb_services`
 --
 ALTER TABLE `tb_services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_services_description`
+-- Indeks untuk tabel `tb_services_description`
 --
 ALTER TABLE `tb_services_description`
   ADD PRIMARY KEY (`id`),
   ADD KEY `language_id` (`language_id`);
 
 --
--- Indexes for table `tb_teams_list`
+-- Indeks untuk tabel `tb_teams_list`
 --
 ALTER TABLE `tb_teams_list`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_user`
+-- Indeks untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- Indexes for table `to_toko`
+-- Indeks untuk tabel `to_toko`
 --
 ALTER TABLE `to_toko`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- Indexes for table `to_toko_product`
+-- Indeks untuk tabel `to_toko_product`
 --
 ALTER TABLE `to_toko_product`
   ADD PRIMARY KEY (`id`),
@@ -2608,362 +2655,362 @@ ALTER TABLE `to_toko_product`
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `trips`
+-- Indeks untuk tabel `trips`
 --
 ALTER TABLE `trips`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tt_text`
+-- Indeks untuk tabel `tt_text`
 --
 ALTER TABLE `tt_text`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `about_image`
+-- AUTO_INCREMENT untuk tabel `about_image`
 --
 ALTER TABLE `about_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `address`
+-- AUTO_INCREMENT untuk tabel `address`
 --
 ALTER TABLE `address`
   MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `banner`
+-- AUTO_INCREMENT untuk tabel `banner`
 --
 ALTER TABLE `banner`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `city`
+-- AUTO_INCREMENT untuk tabel `city`
 --
 ALTER TABLE `city`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=502;
 
 --
--- AUTO_INCREMENT for table `cs_customer`
+-- AUTO_INCREMENT untuk tabel `cs_customer`
 --
 ALTER TABLE `cs_customer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `cs_customer_address`
+-- AUTO_INCREMENT untuk tabel `cs_customer_address`
 --
 ALTER TABLE `cs_customer_address`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `factory`
+-- AUTO_INCREMENT untuk tabel `factory`
 --
 ALTER TABLE `factory`
   MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `faq`
+-- AUTO_INCREMENT untuk tabel `faq`
 --
 ALTER TABLE `faq`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gal_gallery`
+-- AUTO_INCREMENT untuk tabel `gal_gallery`
 --
 ALTER TABLE `gal_gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gal_gallery_description`
+-- AUTO_INCREMENT untuk tabel `gal_gallery_description`
 --
 ALTER TABLE `gal_gallery_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `gal_gallery_image`
+-- AUTO_INCREMENT untuk tabel `gal_gallery_image`
 --
 ALTER TABLE `gal_gallery_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `language`
+-- AUTO_INCREMENT untuk tabel `language`
 --
 ALTER TABLE `language`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `list_career`
+-- AUTO_INCREMENT untuk tabel `list_career`
 --
 ALTER TABLE `list_career`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `log`
+-- AUTO_INCREMENT untuk tabel `log`
 --
 ALTER TABLE `log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
--- AUTO_INCREMENT for table `me_member`
+-- AUTO_INCREMENT untuk tabel `me_member`
 --
 ALTER TABLE `me_member`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `or_order`
+-- AUTO_INCREMENT untuk tabel `or_order`
 --
 ALTER TABLE `or_order`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `or_order_history`
+-- AUTO_INCREMENT untuk tabel `or_order_history`
 --
 ALTER TABLE `or_order_history`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `or_order_product`
+-- AUTO_INCREMENT untuk tabel `or_order_product`
 --
 ALTER TABLE `or_order_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `or_order_status`
+-- AUTO_INCREMENT untuk tabel `or_order_status`
 --
 ALTER TABLE `or_order_status`
   MODIFY `order_status_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pdf`
+-- AUTO_INCREMENT untuk tabel `pdf`
 --
 ALTER TABLE `pdf`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `pg_bank`
+-- AUTO_INCREMENT untuk tabel `pg_bank`
 --
 ALTER TABLE `pg_bank`
   MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pg_blog`
+-- AUTO_INCREMENT untuk tabel `pg_blog`
 --
 ALTER TABLE `pg_blog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `pg_blog_description`
+-- AUTO_INCREMENT untuk tabel `pg_blog_description`
 --
 ALTER TABLE `pg_blog_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `pg_faq`
+-- AUTO_INCREMENT untuk tabel `pg_faq`
 --
 ALTER TABLE `pg_faq`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pg_faq_description`
+-- AUTO_INCREMENT untuk tabel `pg_faq_description`
 --
 ALTER TABLE `pg_faq_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pg_list_bank`
+-- AUTO_INCREMENT untuk tabel `pg_list_bank`
 --
 ALTER TABLE `pg_list_bank`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pg_pages`
+-- AUTO_INCREMENT untuk tabel `pg_pages`
 --
 ALTER TABLE `pg_pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `pg_pages_description`
+-- AUTO_INCREMENT untuk tabel `pg_pages_description`
 --
 ALTER TABLE `pg_pages_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `pg_testimonial`
+-- AUTO_INCREMENT untuk tabel `pg_testimonial`
 --
 ALTER TABLE `pg_testimonial`
   MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pg_testimonial_description`
+-- AUTO_INCREMENT untuk tabel `pg_testimonial_description`
 --
 ALTER TABLE `pg_testimonial_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pg_type_letak`
+-- AUTO_INCREMENT untuk tabel `pg_type_letak`
 --
 ALTER TABLE `pg_type_letak`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_brand`
+-- AUTO_INCREMENT untuk tabel `prd_brand`
 --
 ALTER TABLE `prd_brand`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_brand_description`
+-- AUTO_INCREMENT untuk tabel `prd_brand_description`
 --
 ALTER TABLE `prd_brand_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_category`
+-- AUTO_INCREMENT untuk tabel `prd_category`
 --
 ALTER TABLE `prd_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `prd_category_description`
+-- AUTO_INCREMENT untuk tabel `prd_category_description`
 --
 ALTER TABLE `prd_category_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `prd_category_product`
+-- AUTO_INCREMENT untuk tabel `prd_category_product`
 --
 ALTER TABLE `prd_category_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_product`
+-- AUTO_INCREMENT untuk tabel `prd_product`
 --
 ALTER TABLE `prd_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_product_attributes`
+-- AUTO_INCREMENT untuk tabel `prd_product_attributes`
 --
 ALTER TABLE `prd_product_attributes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_product_color`
+-- AUTO_INCREMENT untuk tabel `prd_product_color`
 --
 ALTER TABLE `prd_product_color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_product_description`
+-- AUTO_INCREMENT untuk tabel `prd_product_description`
 --
 ALTER TABLE `prd_product_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `prd_product_image`
+-- AUTO_INCREMENT untuk tabel `prd_product_image`
 --
 ALTER TABLE `prd_product_image`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sertifikasi`
+-- AUTO_INCREMENT untuk tabel `sertifikasi`
 --
 ALTER TABLE `sertifikasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `setting`
+-- AUTO_INCREMENT untuk tabel `setting`
 --
 ALTER TABLE `setting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT for table `setting_description`
+-- AUTO_INCREMENT untuk tabel `setting_description`
 --
 ALTER TABLE `setting_description`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
--- AUTO_INCREMENT for table `shp_shipping_price`
+-- AUTO_INCREMENT untuk tabel `shp_shipping_price`
 --
 ALTER TABLE `shp_shipping_price`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `sl_slide`
+-- AUTO_INCREMENT untuk tabel `sl_slide`
 --
 ALTER TABLE `sl_slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `sl_slide_description`
+-- AUTO_INCREMENT untuk tabel `sl_slide_description`
 --
 ALTER TABLE `sl_slide_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `tb_group`
+-- AUTO_INCREMENT untuk tabel `tb_group`
 --
 ALTER TABLE `tb_group`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `tb_menu_akses`
+-- AUTO_INCREMENT untuk tabel `tb_menu_akses`
 --
 ALTER TABLE `tb_menu_akses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `tb_services`
+-- AUTO_INCREMENT untuk tabel `tb_services`
 --
 ALTER TABLE `tb_services`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_services_description`
+-- AUTO_INCREMENT untuk tabel `tb_services_description`
 --
 ALTER TABLE `tb_services_description`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `tb_teams_list`
+-- AUTO_INCREMENT untuk tabel `tb_teams_list`
 --
 ALTER TABLE `tb_teams_list`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tb_user`
+-- AUTO_INCREMENT untuk tabel `tb_user`
 --
 ALTER TABLE `tb_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `to_toko`
+-- AUTO_INCREMENT untuk tabel `to_toko`
 --
 ALTER TABLE `to_toko`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `to_toko_product`
+-- AUTO_INCREMENT untuk tabel `to_toko_product`
 --
 ALTER TABLE `to_toko_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT for table `trips`
+-- AUTO_INCREMENT untuk tabel `trips`
 --
 ALTER TABLE `trips`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tt_text`
+-- AUTO_INCREMENT untuk tabel `tt_text`
 --
 ALTER TABLE `tt_text`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
