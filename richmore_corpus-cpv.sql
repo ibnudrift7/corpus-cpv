@@ -2214,112 +2214,12 @@ INSERT INTO `tt_text` (`id`, `category`, `message`) VALUES
 (93, 'front', 'View More Case Studies');
 
 -- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_blog`
--- (See below for the actual view)
---
-CREATE TABLE `view_blog` (
-`id` int(11)
-,`topik_id` int(11)
-,`image` varchar(255)
-,`active` int(11)
-,`date_input` datetime
-,`date_update` datetime
-,`insert_by` varchar(255)
-,`last_update_by` varchar(255)
-,`writer` int(25)
-,`id2` int(11)
-,`blog_id` int(11)
-,`language_id` int(11)
-,`title` varchar(255)
-,`content` text
-,`quote` text
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_category`
--- (See below for the actual view)
---
-CREATE TABLE `view_category` (
-`id` int(11)
-,`parent_id` int(11)
-,`sort` int(11)
-,`image` varchar(200)
-,`type` varchar(100)
-,`data` text
-,`id2` int(11)
-,`category_id` int(11)
-,`language_id` int(11)
-,`name` varchar(100)
-,`data2` text
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_gallery`
--- (See below for the actual view)
---
-CREATE TABLE `view_gallery` (
-`id` int(11)
-,`topik_id` int(11)
-,`image` varchar(255)
-,`image2` varchar(200)
-,`active` int(11)
-,`date_input` datetime
-,`date_update` datetime
-,`insert_by` varchar(255)
-,`last_update_by` varchar(255)
-,`writer` varchar(200)
-,`city` varchar(100)
-,`harga` int(11)
-,`color` varchar(100)
-,`orientation` int(11)
-,`id2` int(11)
-,`gallery_id` int(11)
-,`language_id` int(11)
-,`title` varchar(255)
-,`sub_title` text
-,`sub_title_2` text
-,`content` text
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_slide`
--- (See below for the actual view)
---
-CREATE TABLE `view_slide` (
-`id` int(11)
-,`topik_id` int(11)
-,`image` varchar(255)
-,`active` int(11)
-,`date_input` datetime
-,`date_update` datetime
-,`insert_by` varchar(255)
-,`last_update_by` varchar(255)
-,`writer` varchar(200)
-,`id2` int(11)
-,`slide_id` int(11)
-,`language_id` int(11)
-,`title` varchar(255)
-,`content` text
-,`url` varchar(200)
-,`sort` int(11)
-);
-
--- --------------------------------------------------------
-
 --
 -- Structure for view `view_blog`
 --
 DROP TABLE IF EXISTS `view_blog`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER VIEW `view_blog`  AS  select `pg_blog`.`id` AS `id`,`pg_blog`.`topik_id` AS `topik_id`,`pg_blog`.`image` AS `image`,`pg_blog`.`active` AS `active`,`pg_blog`.`date_input` AS `date_input`,`pg_blog`.`date_update` AS `date_update`,`pg_blog`.`insert_by` AS `insert_by`,`pg_blog`.`last_update_by` AS `last_update_by`,`pg_blog`.`writer` AS `writer`,`pg_blog_description`.`id` AS `id2`,`pg_blog_description`.`blog_id` AS `blog_id`,`pg_blog_description`.`language_id` AS `language_id`,`pg_blog_description`.`title` AS `title`,`pg_blog_description`.`content` AS `content`,`pg_blog_description`.`quote` AS `quote` from (`pg_blog` join `pg_blog_description` on(`pg_blog`.`id` = `pg_blog_description`.`blog_id`)) ;
+CREATE VIEW `view_blog`  AS  select `pg_blog`.`id` AS `id`,`pg_blog`.`topik_id` AS `topik_id`,`pg_blog`.`image` AS `image`,`pg_blog`.`active` AS `active`,`pg_blog`.`date_input` AS `date_input`,`pg_blog`.`date_update` AS `date_update`,`pg_blog`.`insert_by` AS `insert_by`,`pg_blog`.`last_update_by` AS `last_update_by`,`pg_blog`.`writer` AS `writer`,`pg_blog_description`.`id` AS `id2`,`pg_blog_description`.`blog_id` AS `blog_id`,`pg_blog_description`.`language_id` AS `language_id`,`pg_blog_description`.`title` AS `title`,`pg_blog_description`.`content` AS `content`,`pg_blog_description`.`quote` AS `quote` from (`pg_blog` join `pg_blog_description` on(`pg_blog`.`id` = `pg_blog_description`.`blog_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -2328,7 +2228,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER V
 --
 DROP TABLE IF EXISTS `view_category`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER VIEW `view_category`  AS  select `prd_category`.`id` AS `id`,`prd_category`.`parent_id` AS `parent_id`,`prd_category`.`sort` AS `sort`,`prd_category`.`image` AS `image`,`prd_category`.`type` AS `type`,`prd_category`.`data` AS `data`,`prd_category_description`.`id` AS `id2`,`prd_category_description`.`category_id` AS `category_id`,`prd_category_description`.`language_id` AS `language_id`,`prd_category_description`.`name` AS `name`,`prd_category_description`.`data` AS `data2` from (`prd_category` join `prd_category_description` on(`prd_category`.`id` = `prd_category_description`.`category_id`)) ;
+CREATE VIEW `view_category`  AS  select `prd_category`.`id` AS `id`,`prd_category`.`parent_id` AS `parent_id`,`prd_category`.`sort` AS `sort`,`prd_category`.`image` AS `image`,`prd_category`.`type` AS `type`,`prd_category`.`data` AS `data`,`prd_category_description`.`id` AS `id2`,`prd_category_description`.`category_id` AS `category_id`,`prd_category_description`.`language_id` AS `language_id`,`prd_category_description`.`name` AS `name`,`prd_category_description`.`data` AS `data2` from (`prd_category` join `prd_category_description` on(`prd_category`.`id` = `prd_category_description`.`category_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -2337,7 +2237,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER V
 --
 DROP TABLE IF EXISTS `view_gallery`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER VIEW `view_gallery`  AS  select `gal_gallery`.`id` AS `id`,`gal_gallery`.`topik_id` AS `topik_id`,`gal_gallery`.`image` AS `image`,`gal_gallery`.`image2` AS `image2`,`gal_gallery`.`active` AS `active`,`gal_gallery`.`date_input` AS `date_input`,`gal_gallery`.`date_update` AS `date_update`,`gal_gallery`.`insert_by` AS `insert_by`,`gal_gallery`.`last_update_by` AS `last_update_by`,`gal_gallery`.`writer` AS `writer`,`gal_gallery`.`city` AS `city`,`gal_gallery`.`harga` AS `harga`,`gal_gallery`.`color` AS `color`,`gal_gallery`.`orientation` AS `orientation`,`gal_gallery_description`.`id` AS `id2`,`gal_gallery_description`.`gallery_id` AS `gallery_id`,`gal_gallery_description`.`language_id` AS `language_id`,`gal_gallery_description`.`title` AS `title`,`gal_gallery_description`.`sub_title` AS `sub_title`,`gal_gallery_description`.`sub_title_2` AS `sub_title_2`,`gal_gallery_description`.`content` AS `content` from (`gal_gallery` join `gal_gallery_description` on(`gal_gallery`.`id` = `gal_gallery_description`.`gallery_id`)) ;
+CREATE VIEW `view_gallery`  AS  select `gal_gallery`.`id` AS `id`,`gal_gallery`.`topik_id` AS `topik_id`,`gal_gallery`.`image` AS `image`,`gal_gallery`.`image2` AS `image2`,`gal_gallery`.`active` AS `active`,`gal_gallery`.`date_input` AS `date_input`,`gal_gallery`.`date_update` AS `date_update`,`gal_gallery`.`insert_by` AS `insert_by`,`gal_gallery`.`last_update_by` AS `last_update_by`,`gal_gallery`.`writer` AS `writer`,`gal_gallery`.`city` AS `city`,`gal_gallery`.`harga` AS `harga`,`gal_gallery`.`color` AS `color`,`gal_gallery`.`orientation` AS `orientation`,`gal_gallery_description`.`id` AS `id2`,`gal_gallery_description`.`gallery_id` AS `gallery_id`,`gal_gallery_description`.`language_id` AS `language_id`,`gal_gallery_description`.`title` AS `title`,`gal_gallery_description`.`sub_title` AS `sub_title`,`gal_gallery_description`.`sub_title_2` AS `sub_title_2`,`gal_gallery_description`.`content` AS `content` from (`gal_gallery` join `gal_gallery_description` on(`gal_gallery`.`id` = `gal_gallery_description`.`gallery_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -2346,7 +2246,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER V
 --
 DROP TABLE IF EXISTS `view_slide`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`richmore`@`localhost` SQL SECURITY DEFINER VIEW `view_slide`  AS  select `sl_slide`.`id` AS `id`,`sl_slide`.`topik_id` AS `topik_id`,`sl_slide`.`image` AS `image`,`sl_slide`.`active` AS `active`,`sl_slide`.`date_input` AS `date_input`,`sl_slide`.`date_update` AS `date_update`,`sl_slide`.`insert_by` AS `insert_by`,`sl_slide`.`last_update_by` AS `last_update_by`,`sl_slide`.`writer` AS `writer`,`sl_slide_description`.`id` AS `id2`,`sl_slide_description`.`slide_id` AS `slide_id`,`sl_slide_description`.`language_id` AS `language_id`,`sl_slide_description`.`title` AS `title`,`sl_slide_description`.`content` AS `content`,`sl_slide_description`.`url` AS `url`,`sl_slide`.`sort` AS `sort` from (`sl_slide` join `sl_slide_description` on(`sl_slide_description`.`slide_id` = `sl_slide`.`id`)) ;
+CREATE VIEW `view_slide`  AS  select `sl_slide`.`id` AS `id`,`sl_slide`.`topik_id` AS `topik_id`,`sl_slide`.`image` AS `image`,`sl_slide`.`active` AS `active`,`sl_slide`.`date_input` AS `date_input`,`sl_slide`.`date_update` AS `date_update`,`sl_slide`.`insert_by` AS `insert_by`,`sl_slide`.`last_update_by` AS `last_update_by`,`sl_slide`.`writer` AS `writer`,`sl_slide_description`.`id` AS `id2`,`sl_slide_description`.`slide_id` AS `slide_id`,`sl_slide_description`.`language_id` AS `language_id`,`sl_slide_description`.`title` AS `title`,`sl_slide_description`.`content` AS `content`,`sl_slide_description`.`url` AS `url`,`sl_slide`.`sort` AS `sort` from (`sl_slide` join `sl_slide_description` on(`sl_slide_description`.`slide_id` = `sl_slide`.`id`)) ;
 
 --
 -- Indexes for dumped tables
