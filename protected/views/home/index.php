@@ -4,11 +4,11 @@
 			<div class="row">
 				<div class="col-md-30">
 					<div class="title">
-						<h4>Build your business with good capital and cash flow. Be ready to success with optimistic mind, as we will be at your back.</h4>
+						<h4><?php echo $this->setting['home_section1_title'] ?></h4>
 					</div>
 					<div class="subtitle">
 						<?php $ln_contact = CHtml::normalizeUrl(array('/home/contactus', 'lang'=>Yii::app()->language)); ?>
-						<p>Besides supplying you with corporate loans, we will work with you and take a close and careful look at the financial needs of your business. We perfectly tailor the finance solution that you need.If you're ready to talk about your options and possibilities, contact us now.</p>
+						<?php echo $this->setting['home_section1_subtitle'] ?>
 					</div>
 				</div>
 				<div class="col-md-30">
@@ -40,13 +40,13 @@
 				<div class="col-md-60">
 					<img src="<?php echo $this->assetBaseurl; ?>logo-sec-2.png" alt="">
 					<div class="title">
-						<p>YOUR PARTNER IN CAPITAL FUNDING</p>
+						<p><?php echo $this->setting['home_section2_smalltitle'] ?></p>
 					</div>
 					<div class="sub">
-						<p>Why You Need Corpus Prima Ventura</p>
+						<p><?php echo $this->setting['home_section2_title'] ?></p>
 					</div>
 					<div class="content">
-						<p>Corpus Prima Ventura have successfully helped hundreds of satisfied business in Indonesia. As we know that every busines is unique on it’s own, each solution is customised and therefore we will find the loan that fits your business. With secure financing, good planning and peace of mind, we’ll help you to build your way to success. Our process is very simple:<br><strong>Assess Your Need - Analyze Assets - Get You Funding</strong></p>
+						<?php echo $this->setting['home_section2_subcontent'] ?>
 					</div>
 				</div>
 			</div>
@@ -115,10 +115,10 @@
 			<div class="row">
 				<div class="col-md-60">
 					<div class="title">
-						<p><?php echo $this->setting['home_section2_smalltitle'] ?></p>
+						<p><?php echo $this->setting['home_section3_smalltitle'] ?></p>
 					</div>
 					<div class="sub">
-						<p><?php echo $this->setting['home_section2_title'] ?></p>
+						<p><?php echo $this->setting['home_section3_title'] ?></p>
 					</div>
 				</div>
 			</div>

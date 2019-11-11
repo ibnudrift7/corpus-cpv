@@ -188,7 +188,7 @@ $this->pageHeader=array(
 				<h4 class="widgettitle">Section 2</h4>
 		    </div>
 			<div class="widgetcontent">
-				<?php $type = 'home_section2_smalltitle'; ?>
+				<?php $type = 'home_section3_smalltitle'; ?>
 				<?php Common::createSetting($type, 'Section1 Small Title', 'text', 'y') ?>
 				<?php foreach (Language::model()->getLanguage() as $key => $value): ?>
 				<div class="pj-multilang-wrap myLanguage control-group" style="display: <?php if ($value->code==$this->setting['lang_deff']): ?>block<?php else: ?>none<?php endif ?>;" data-id="<?php echo $value->id ?>">
@@ -200,7 +200,7 @@ $this->pageHeader=array(
 				</div>
 				<?php endforeach ?>
 
-				<?php $type = 'home_section2_title'; ?>
+				<?php $type = 'home_section3_title'; ?>
 				<?php Common::createSetting($type, 'Section1 Title', 'text', 'y') ?>
 				<?php foreach (Language::model()->getLanguage() as $key => $value): ?>
 				<div class="pj-multilang-wrap myLanguage control-group" style="display: <?php if ($value->code==$this->setting['lang_deff']): ?>block<?php else: ?>none<?php endif ?>;" data-id="<?php echo $value->id ?>">
